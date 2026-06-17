@@ -1,0 +1,37 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Build Drone (Keil UV4)",
+			"type": "shell",
+			"command": "D:\\App\\Keil\\Keil Core\\UV4\\UV4.exe",
+			"args": [
+				"-b",
+				"d:\\About code\\STM32-Project\\My_Drone\\4_FreeRTOS_Code\\Drone\\MDK-ARM\\Drone.uvprojx",
+				"-j0",
+				"-t",
+				"Drone",
+				"-o",
+				"d:\\About code\\STM32-Project\\My_Drone\\4_FreeRTOS_Code\\Drone\\MDK-ARM\\.vscode\\uv4.log"
+			],
+			"problemMatcher": [],
+			"group": "build"
+		},
+		{
+			"label": "Build Drone (Keil UV4)",
+			"type": "shell",
+			"command": "D:\\App\\Keil\\Keil Core\\UV4\\UV4.exe",
+			"args": [
+				"-b",
+				"d:\\About code\\STM32-Project\\My_Drone\\4_FreeRTOS_Code\\Drone\\MDK-ARM\\Drone.uvprojx",
+				"-j0",
+				"-t",
+				"Drone",
+				"-o",
+				"d:\\About code\\STM32-Project\\My_Drone\\4_FreeRTOS_Code\\Drone\\MDK-ARM\\.vscode\\uv4.log"
+			],
+			"problemMatcher": [],
+			"group": "build"
+		}
+	]
+}

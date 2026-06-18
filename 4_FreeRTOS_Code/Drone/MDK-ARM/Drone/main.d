@@ -25,7 +25,10 @@ drone\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_cortex.h
 drone\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash.h
 drone\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h
 drone\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h
+drone\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h
+drone\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h
 drone\main.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h
+drone\main.o: ../Core/Inc/tim.h
 drone\main.o: ../Core/Inc/usart.h
 drone\main.o: ../Core/Inc/gpio.h
 drone\main.o: ./Application/APP_RTOS_Task.h
@@ -39,8 +42,10 @@ drone\main.o: ./RTOS/include/mpu_wrappers.h
 drone\main.o: ./RTOS/include/task.h
 drone\main.o: ./RTOS/include/list.h
 drone\main.o: ./RTOS/include/queue.h
-drone\main.o: .\Interface\Power.h
 drone\main.o: ./common/Com_debug.h
 drone\main.o: D:\App\Keil\Keil Core\ARM\ARMCC\Bin\..\include\stdio.h
 drone\main.o: D:\App\Keil\Keil Core\ARM\ARMCC\Bin\..\include\stdarg.h
 drone\main.o: D:\App\Keil\Keil Core\ARM\ARMCC\Bin\..\include\string.h
+drone\main.o: ./Interface/Power.h
+drone\main.o: ./Interface/Motor.h
+drone\main.o: ./Interface/LED.h

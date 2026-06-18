@@ -12,7 +12,9 @@ drone\app_rtos_task.o: ./RTOS/include/mpu_wrappers.h
 drone\app_rtos_task.o: ./RTOS/include/task.h
 drone\app_rtos_task.o: ./RTOS/include/list.h
 drone\app_rtos_task.o: ./RTOS/include/queue.h
-drone\app_rtos_task.o: .\Interface\Power.h
+drone\app_rtos_task.o: ./common/Com_debug.h
+drone\app_rtos_task.o: D:\App\Keil\Keil Core\ARM\ARMCC\Bin\..\include\stdio.h
+drone\app_rtos_task.o: ../Core/Inc/usart.h
 drone\app_rtos_task.o: ../Core/Inc/main.h
 drone\app_rtos_task.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h
 drone\app_rtos_task.o: ../Core/Inc/stm32f1xx_hal_conf.h
@@ -37,9 +39,12 @@ drone\app_rtos_task.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_cortex.
 drone\app_rtos_task.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash.h
 drone\app_rtos_task.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h
 drone\app_rtos_task.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h
+drone\app_rtos_task.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h
+drone\app_rtos_task.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h
 drone\app_rtos_task.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h
-drone\app_rtos_task.o: ./common/Com_debug.h
-drone\app_rtos_task.o: D:\App\Keil\Keil Core\ARM\ARMCC\Bin\..\include\stdio.h
-drone\app_rtos_task.o: ../Core/Inc/usart.h
 drone\app_rtos_task.o: D:\App\Keil\Keil Core\ARM\ARMCC\Bin\..\include\stdarg.h
 drone\app_rtos_task.o: D:\App\Keil\Keil Core\ARM\ARMCC\Bin\..\include\string.h
+drone\app_rtos_task.o: ./Interface/Power.h
+drone\app_rtos_task.o: ./Interface/Motor.h
+drone\app_rtos_task.o: ../Core/Inc/tim.h
+drone\app_rtos_task.o: ./Interface/LED.h

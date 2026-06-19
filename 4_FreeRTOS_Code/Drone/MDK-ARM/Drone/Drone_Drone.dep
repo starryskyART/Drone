@@ -32,7 +32,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x6A146176)
 I (../Core/Inc/tim.h)(0x6A32C198)
 I (../Core/Inc/usart.h)(0x6A1469AF)
 I (../Core/Inc/gpio.h)(0x6A14617A)
-I (./Application/APP_RTOS_Task.h)(0x6A33B995)
+I (./Application/APP_RTOS_Task.h)(0x6A34F05F)
 I (./RTOS/include/FreeRTOS.h)(0x64020E50)
 I (./RTOS/FreeRTOSConfig.h)(0x6A146E9F)
 I (./RTOS/include/projdefs.h)(0x64020E50)
@@ -50,6 +50,7 @@ I (D:\App\Keil\Keil Core\ARM\ARMCC\include\string.h)(0x588B8344)
 I (./Interface/Power.h)(0x6A1472A7)
 I (./Interface/Motor.h)(0x6A33A8B9)
 I (./Interface/LED.h)(0x6A33C476)
+I (./common/Com_config.h)(0x6A34F37A)
 F (../Core/Src/gpio.c)(0x6A33B29E)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ./common -I ./RTOS -I ./RTOS/include -I ./RTOS/portable -I ./Application -I ./Interface-I.\RTE\_Drone-I"D:\App\Keil\Keil Pack\ARM\CMSIS\5.0.1\CMSIS\Include"-I"D:\App\Keil\Keil Pack\Keil\STM32F1xx_DFP\2.2.0\Device\Include"-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F10X_MD -DUSE_HAL_DRIVER -DSTM32F103xB-o drone\gpio.o --omf_browse drone\gpio.crf --depend drone\gpio.d)
 I (../Core/Inc/gpio.h)(0x6A14617A)
 I (../Core/Inc/main.h)(0x6A33B29F)
@@ -809,8 +810,9 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x6A146176)
 I (D:\App\Keil\Keil Core\ARM\ARMCC\include\stdarg.h)(0x588B8344)
 I (D:\App\Keil\Keil Core\ARM\ARMCC\include\string.h)(0x588B8344)
 F (.\common\Com_debug.h)(0x6A146CAD)()
-F (.\Application\APP_RTOS_Task.c)(0x6A33C791)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ./common -I ./RTOS -I ./RTOS/include -I ./RTOS/portable -I ./Application -I ./Interface-I.\RTE\_Drone-I"D:\App\Keil\Keil Pack\ARM\CMSIS\5.0.1\CMSIS\Include"-I"D:\App\Keil\Keil Pack\Keil\STM32F1xx_DFP\2.2.0\Device\Include"-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F10X_MD -DUSE_HAL_DRIVER -DSTM32F103xB-o drone\app_rtos_task.o --omf_browse drone\app_rtos_task.crf --depend drone\app_rtos_task.d)
-I (Application\APP_RTOS_Task.h)(0x6A33B995)
+F (.\common\Com_config.h)(0x6A34F37A)()
+F (.\Application\APP_RTOS_Task.c)(0x6A34F84D)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ./common -I ./RTOS -I ./RTOS/include -I ./RTOS/portable -I ./Application -I ./Interface-I.\RTE\_Drone-I"D:\App\Keil\Keil Pack\ARM\CMSIS\5.0.1\CMSIS\Include"-I"D:\App\Keil\Keil Pack\Keil\STM32F1xx_DFP\2.2.0\Device\Include"-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F10X_MD -DUSE_HAL_DRIVER -DSTM32F103xB-o drone\app_rtos_task.o --omf_browse drone\app_rtos_task.crf --depend drone\app_rtos_task.d)
+I (Application\APP_RTOS_Task.h)(0x6A34F05F)
 I (./RTOS/include/FreeRTOS.h)(0x64020E50)
 I (D:\App\Keil\Keil Core\ARM\ARMCC\include\stddef.h)(0x588B8344)
 I (D:\App\Keil\Keil Core\ARM\ARMCC\include\stdint.h)(0x588B8344)
@@ -858,7 +860,8 @@ I (./Interface/Power.h)(0x6A1472A7)
 I (./Interface/Motor.h)(0x6A33A8B9)
 I (../Core/Inc/tim.h)(0x6A32C198)
 I (./Interface/LED.h)(0x6A33C476)
-F (.\Application\APP_RTOS_Task.h)(0x6A33B995)()
+I (./common/Com_config.h)(0x6A34F37A)
+F (.\Application\APP_RTOS_Task.h)(0x6A34F05F)()
 F (.\Interface\Power.c)(0x6A147317)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ./common -I ./RTOS -I ./RTOS/include -I ./RTOS/portable -I ./Application -I ./Interface-I.\RTE\_Drone-I"D:\App\Keil\Keil Pack\ARM\CMSIS\5.0.1\CMSIS\Include"-I"D:\App\Keil\Keil Pack\Keil\STM32F1xx_DFP\2.2.0\Device\Include"-D__UVISION_VERSION="524" -D_RTE_ -DSTM32F10X_MD -DUSE_HAL_DRIVER -DSTM32F103xB-o drone\power.o --omf_browse drone\power.crf --depend drone\power.d)
 I (Interface\Power.h)(0x6A1472A7)
 I (../Core/Inc/main.h)(0x6A33B29F)

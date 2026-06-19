@@ -49,3 +49,4 @@ drone\main.o: D:\App\Keil\Keil Core\ARM\ARMCC\Bin\..\include\string.h
 drone\main.o: ./Interface/Power.h
 drone\main.o: ./Interface/Motor.h
 drone\main.o: ./Interface/LED.h
+drone\main.o: ./common/Com_config.h

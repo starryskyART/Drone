@@ -48,3 +48,4 @@ drone\app_rtos_task.o: ./Interface/Power.h
 drone\app_rtos_task.o: ./Interface/Motor.h
 drone\app_rtos_task.o: ../Core/Inc/tim.h
 drone\app_rtos_task.o: ./Interface/LED.h
+drone\app_rtos_task.o: ./common/Com_config.h

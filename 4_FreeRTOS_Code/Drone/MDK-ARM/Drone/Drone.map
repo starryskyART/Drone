@@ -2342,20 +2342,20 @@ Memory Map of the image
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
     0x08000000   0x08000000   0x000000ec   Data   RO            3    RESET               startup_stm32f103xb.o
-    0x080000ec   0x080000ec   0x00000000   Code   RO         4471  * .ARM.Collect$$$$00000000  mc_w.l(entry.o)
-    0x080000ec   0x080000ec   0x00000004   Code   RO         4745    .ARM.Collect$$$$00000001  mc_w.l(entry2.o)
-    0x080000f0   0x080000f0   0x00000004   Code   RO         4748    .ARM.Collect$$$$00000004  mc_w.l(entry5.o)
-    0x080000f4   0x080000f4   0x00000000   Code   RO         4750    .ARM.Collect$$$$00000008  mc_w.l(entry7b.o)
-    0x080000f4   0x080000f4   0x00000000   Code   RO         4752    .ARM.Collect$$$$0000000A  mc_w.l(entry8b.o)
-    0x080000f4   0x080000f4   0x00000008   Code   RO         4753    .ARM.Collect$$$$0000000B  mc_w.l(entry9a.o)
-    0x080000fc   0x080000fc   0x00000000   Code   RO         4755    .ARM.Collect$$$$0000000D  mc_w.l(entry10a.o)
-    0x080000fc   0x080000fc   0x00000000   Code   RO         4757    .ARM.Collect$$$$0000000F  mc_w.l(entry11a.o)
-    0x080000fc   0x080000fc   0x00000004   Code   RO         4746    .ARM.Collect$$$$00002712  mc_w.l(entry2.o)
+    0x080000ec   0x080000ec   0x00000000   Code   RO         4383  * .ARM.Collect$$$$00000000  mc_w.l(entry.o)
+    0x080000ec   0x080000ec   0x00000004   Code   RO         4657    .ARM.Collect$$$$00000001  mc_w.l(entry2.o)
+    0x080000f0   0x080000f0   0x00000004   Code   RO         4660    .ARM.Collect$$$$00000004  mc_w.l(entry5.o)
+    0x080000f4   0x080000f4   0x00000000   Code   RO         4662    .ARM.Collect$$$$00000008  mc_w.l(entry7b.o)
+    0x080000f4   0x080000f4   0x00000000   Code   RO         4664    .ARM.Collect$$$$0000000A  mc_w.l(entry8b.o)
+    0x080000f4   0x080000f4   0x00000008   Code   RO         4665    .ARM.Collect$$$$0000000B  mc_w.l(entry9a.o)
+    0x080000fc   0x080000fc   0x00000000   Code   RO         4667    .ARM.Collect$$$$0000000D  mc_w.l(entry10a.o)
+    0x080000fc   0x080000fc   0x00000000   Code   RO         4669    .ARM.Collect$$$$0000000F  mc_w.l(entry11a.o)
+    0x080000fc   0x080000fc   0x00000004   Code   RO         4658    .ARM.Collect$$$$00002712  mc_w.l(entry2.o)
     0x08000100   0x08000100   0x00000096   Code   RO         4051    .emb_text           port.o
     0x08000196   0x08000196   0x00000002   PAD
     0x08000198   0x08000198   0x00000024   Code   RO            4    .text               startup_stm32f103xb.o
-    0x080001bc   0x080001bc   0x00000024   Code   RO         4478    .text               mc_w.l(memseta.o)
-    0x080001e0   0x080001e0   0x00000024   Code   RO         4775    .text               mc_w.l(init.o)
+    0x080001bc   0x080001bc   0x00000024   Code   RO         4390    .text               mc_w.l(memseta.o)
+    0x080001e0   0x080001e0   0x00000024   Code   RO         4687    .text               mc_w.l(init.o)
     0x08000204   0x08000204   0x00000080   Code   RO         4162    i.APP_RTOS_Start    app_rtos_task.o
     0x08000284   0x08000284   0x00000004   Code   RO          387    i.BusFault_Handler  stm32f1xx_it.o
     0x08000288   0x08000288   0x00000002   Code   RO          388    i.DebugMon_Handler  stm32f1xx_it.o
@@ -2430,9 +2430,9 @@ Memory Map of the image
     0x08001fb0   0x08001fb0   0x00000004   Code   RO          393    i.UsageFault_Handler  stm32f1xx_it.o
     0x08001fb4   0x08001fb4   0x00000010   Code   RO         1327    i.__NVIC_GetPriorityGrouping  stm32f1xx_hal_cortex.o
     0x08001fc4   0x08001fc4   0x00000028   Code   RO         1328    i.__NVIC_SetPriority  stm32f1xx_hal_cortex.o
-    0x08001fec   0x08001fec   0x0000000e   Code   RO         4785    i.__scatterload_copy  mc_w.l(handlers.o)
-    0x08001ffa   0x08001ffa   0x00000002   Code   RO         4786    i.__scatterload_null  mc_w.l(handlers.o)
-    0x08001ffc   0x08001ffc   0x0000000e   Code   RO         4787    i.__scatterload_zeroinit  mc_w.l(handlers.o)
+    0x08001fec   0x08001fec   0x0000000e   Code   RO         4697    i.__scatterload_copy  mc_w.l(handlers.o)
+    0x08001ffa   0x08001ffa   0x00000002   Code   RO         4698    i.__scatterload_null  mc_w.l(handlers.o)
+    0x08001ffc   0x08001ffc   0x0000000e   Code   RO         4699    i.__scatterload_zeroinit  mc_w.l(handlers.o)
     0x0800200a   0x0800200a   0x0000002c   Code   RO           15    i.main              main.o
     0x08002036   0x08002036   0x00000002   PAD
     0x08002038   0x08002038   0x000000c0   Code   RO         3678    i.prvAddCurrentTaskToDelayedList  tasks.o
@@ -2474,7 +2474,7 @@ Memory Map of the image
     0x08002bfc   0x08002bfc   0x00000012   Data   RO         1021    .constdata          stm32f1xx_hal_rcc.o
     0x08002c0e   0x08002c0e   0x00000018   Data   RO         3199    .constdata          system_stm32f1xx.o
     0x08002c26   0x08002c26   0x00000002   PAD
-    0x08002c28   0x08002c28   0x00000020   Data   RO         4783    Region$$Table       anon$$obj.o
+    0x08002c28   0x08002c28   0x00000020   Data   RO         4695    Region$$Table       anon$$obj.o
 
 
     Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x08002c48, Size: 0x00004b48, Max: 0x00005000, ABSOLUTE)

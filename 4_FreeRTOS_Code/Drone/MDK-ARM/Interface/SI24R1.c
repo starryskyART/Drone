@@ -12,24 +12,22 @@ static uint8_t SPI_RW(uint8_t byte)
 /********************************************************
 函数功能：写寄存器的值（单字节）
 入口参数：reg:寄存器映射地址（格式：SI24R1_WRITE_REG｜reg）
-					value:寄存器的值
-返回  值：状态寄存器的值
+		 value:寄存器的值
+返回值：状态寄存器的值
 *********************************************************/
 uint8_t SI24R1_Write_Reg(uint8_t reg, uint8_t value)
 {
 	uint8_t status;
-
 	CS_LOW;
 	status = SPI_RW(reg);
 	SPI_RW(value);
-	CS_HIGH;
-
+	CS_HIGH;	
 	return (status);
 }
 
 /********************************************************
 函数功能：写寄存器的值（多字节）
-入口参数：reg:寄存器映射地址（格式：SI24R1_WRITE_REG｜reg）
+入口参数：			 reg:寄存器映射地址（格式：SI24R1_WRITE_REG｜reg）
 					pBuf:写数据首地址
 					bytes:写数据字节数
 返回  值：状态寄存器的值
@@ -101,7 +99,7 @@ void SI24R1_RX_Mode(void)
 	SI24R1_Write_Reg(SI24R1_WRITE_REG + EN_RXADDR, 0x01);					   // 使能接收通道0
 	SI24R1_Write_Reg(SI24R1_WRITE_REG + RF_CH, EN_CHANNEL);					   // 选择射频通道0x40
 	SI24R1_Write_Reg(SI24R1_WRITE_REG + RX_PW_P0, TX_PLOAD_WIDTH);			   // 接收通道0选择和发送通道相同有效数据宽度
-	SI24R1_Write_Reg(SI24R1_WRITE_REG + RF_SETUP, 0x06);					   // 数据传输率1Mbps，发射功率7dBm
+	SI24R1_Write_Reg(SI24R1_WRITE_REG + RF_SETUP, 0x06);					   // 数据传输率1Mbps，发射功率4dBm
 	SI24R1_Write_Reg(SI24R1_WRITE_REG + CONFIG, 0x0f);						   // CRC使能，16位CRC校验，上电，接收模式
 	SI24R1_Write_Reg(SI24R1_WRITE_REG + STATUS, 0xff);						   // 清除所有的中断标志位
 	CE_HIGH;																   // 拉高CE启动接收设备
@@ -122,7 +120,7 @@ void SI24R1_TX_Mode(void)
 	SI24R1_Write_Reg(SI24R1_WRITE_REG + EN_RXADDR, 0x01);	// 使能接收通道0
 	SI24R1_Write_Reg(SI24R1_WRITE_REG + SETUP_RETR, 0x0a);	// 自动重发延时等待250us+86us，自动重发10次
 	SI24R1_Write_Reg(SI24R1_WRITE_REG + RF_CH, EN_CHANNEL); // 选择射频通道0x40
-	SI24R1_Write_Reg(SI24R1_WRITE_REG + RF_SETUP, 0x06);	// 数据传输率1Mbps，发射功率7dBm
+	SI24R1_Write_Reg(SI24R1_WRITE_REG + RF_SETUP, 0x06);	// 数据传输率1Mbps，发射功率4dBm
 	SI24R1_Write_Reg(SI24R1_WRITE_REG + CONFIG, 0x0e);		// CRC使能，16位CRC校验，上电
 	CE_HIGH;												// 拉高CE启动接收设备
 }

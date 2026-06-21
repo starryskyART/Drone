@@ -60,15 +60,14 @@ uint8_t SI24R1_Read_Reg(uint8_t reg)
 	SPI_RW(reg);
 	value = SPI_RW(0);
 	CS_HIGH;
-
 	return (value);
 }
 
 /********************************************************
 函数功能：读取寄存器的值（多字节）
 入口参数：reg:寄存器映射地址（SI24R1_READ_REG｜reg）
-					pBuf:接收缓冲区的首地址
-					bytes:读取字节数
+		 Buf:接收缓冲区的首地址
+		 bytes:读取字节数
 返回  值：状态寄存器的值
 *********************************************************/
 uint8_t SI24R1_Read_Buf(uint8_t reg, uint8_t *pBuf, uint8_t bytes)

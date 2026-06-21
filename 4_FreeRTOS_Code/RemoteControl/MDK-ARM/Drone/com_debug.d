@@ -27,6 +27,7 @@ drone\com_debug.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_cortex.h
 drone\com_debug.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash.h
 drone\com_debug.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h
 drone\com_debug.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h
+drone\com_debug.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h
 drone\com_debug.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h
 drone\com_debug.o: D:\App\Keil\Keil Core\ARM\ARMCC\Bin\..\include\stdio.h
 drone\com_debug.o: D:\App\Keil\Keil Core\ARM\ARMCC\Bin\..\include\stdarg.h

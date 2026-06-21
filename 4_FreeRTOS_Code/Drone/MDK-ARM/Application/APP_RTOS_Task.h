@@ -6,10 +6,12 @@
 #include "task.h"
 #include "queue.h"
 #include "Com_debug.h"
+#include "Com_config.h"
 #include "Power.h"
 #include "Motor.h"
 #include "LED.h"
-#include "Com_config.h"
+#include "SI24R1.h"
+
 
 
 

@@ -96,8 +96,8 @@ int main(void)
   MX_TIM4_Init();
   MX_SPI1_Init();
   /* USER CODE BEGIN 2 */
-
-   APP_RTOS_Start();
+  SI24R1_Init();
+  APP_RTOS_Start();
 
   /* USER CODE END 2 */
 

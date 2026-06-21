@@ -2,6 +2,7 @@
 #define __nRF24L01P__
 
 #include "spi.h"
+#include "Com_debug.h"
 
 // À­µÍÆ¬Ñ¡
 #define CS_LOW HAL_GPIO_WritePin(SPI1_NSS_GPIO_Port, SPI1_NSS_Pin, GPIO_PIN_RESET);
@@ -76,7 +77,7 @@ void SI24R1_TX_Mode(void);
 uint8_t SI24R1_RxPacket(uint8_t *rxbuf);
 uint8_t SI24R1_TxPacket(uint8_t *txbuf);
 
-
+void SI24R1_Init(void);
 
 //********************************************************************************************************************//
 #endif

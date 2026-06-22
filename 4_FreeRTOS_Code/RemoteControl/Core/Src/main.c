@@ -91,7 +91,7 @@ int main(void)
   MX_USART2_UART_Init();
   MX_SPI1_Init();
   /* USER CODE BEGIN 2 */
-  
+  SI24R1_Init(); // 初始化SI24R1模块
 	App_RTOS_Start(); // 启动FreeRTOS任务
 
   /* USER CODE END 2 */

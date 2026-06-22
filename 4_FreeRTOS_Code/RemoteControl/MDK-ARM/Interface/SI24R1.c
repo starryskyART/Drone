@@ -110,12 +110,12 @@ void SI24R1_TX_Mode(void)
 	CE_LOW;
 	SI24R1_Write_Buf(SI24R1_WRITE_REG + TX_ADDR, TX_ADDRESS, TX_ADR_WIDTH);	   // 写入发送地址
 	SI24R1_Write_Buf(SI24R1_WRITE_REG + RX_ADDR_P0, TX_ADDRESS, TX_ADR_WIDTH); // 为了应答接收设备，接收通道0地址和发送地址相同
-	SI24R1_Write_Reg(SI24R1_WRITE_REG + EN_AA, 0x01);		// 使能接收通道0自动应答
-	SI24R1_Write_Reg(SI24R1_WRITE_REG + EN_RXADDR, 0x01);	// 使能接收通道0
-	SI24R1_Write_Reg(SI24R1_WRITE_REG + SETUP_RETR, 0x0a);	// 自动重发延时等待250us+86us，自动重发10次
-	SI24R1_Write_Reg(SI24R1_WRITE_REG + RF_CH, RF_CHANNEL); // 选择射频通道0x40
-	SI24R1_Write_Reg(SI24R1_WRITE_REG + RF_SETUP, 0x06);	// 数据传输率1Mbps，发射功率4dBm
-	SI24R1_Write_Reg(SI24R1_WRITE_REG + CONFIG, 0x0e);		// CRC使能，16位CRC校验，上电
+	SI24R1_Write_Reg(SI24R1_WRITE_REG + EN_AA, 0x01);						   // 使能接收通道0自动应答
+	SI24R1_Write_Reg(SI24R1_WRITE_REG + EN_RXADDR, 0x01);					   // 使能接收通道0
+	SI24R1_Write_Reg(SI24R1_WRITE_REG + SETUP_RETR, 0x0a);					   // 自动重发延时等待250us+86us，自动重发10次
+	SI24R1_Write_Reg(SI24R1_WRITE_REG + RF_CH, RF_CHANNEL);					   // 选择射频通道0x40
+	SI24R1_Write_Reg(SI24R1_WRITE_REG + RF_SETUP, 0x06);					   // 数据传输率1Mbps，发射功率4dBm
+	SI24R1_Write_Reg(SI24R1_WRITE_REG + CONFIG, 0x0e);						   // CRC使能，16位CRC校验，上电
 	CE_HIGH;
 }
 
@@ -134,7 +134,7 @@ uint8_t SI24R1_RxPacket(uint8_t *rxbuf)
 	if (state & RX_DR) // 接收到数据
 	{
 		SI24R1_Read_Buf(RD_RX_PLOAD, rxbuf, TX_PLOAD_WIDTH); // 读取数据
-		SI24R1_Write_Reg(FLUSH_RX, 0xff); // 清除RX FIFO寄存器
+		SI24R1_Write_Reg(FLUSH_RX, 0xff);					 // 清除RX FIFO寄存器
 		return 0;
 	}
 	return 1; // 没收到任何数据
@@ -167,4 +167,44 @@ uint8_t SI24R1_TxPacket(uint8_t *txbuf)
 		return 0;
 	}
 	return 1; // 发送失败
+}
+
+uint8_t SI24R1_Rx_Buff[5] = {0}; // 定义一个静态接收缓冲区
+
+/**
+ * @addtogroup SI24R1检查函数
+ * @brief 检查SI24R1模块是否正常工作
+ * @note 该函数会写入一个测试地址到发送地址寄存器，然后读取
+ * @param None
+ * @retval 0: 检查成功
+ * @retval 1: 检查失败
+ */
+uint8_t SI24R1_Check(void)
+{
+	SI24R1_Write_Buf(SI24R1_WRITE_REG + TX_ADDR, TX_ADDRESS, TX_ADR_WIDTH); // 写入发送地址
+	SI24R1_Read_Buf(SI24R1_READ_REG + TX_ADDR, SI24R1_Rx_Buff, TX_ADR_WIDTH);
+	for (uint8_t i = 0; i < TX_ADR_WIDTH; i++)
+	{
+		if (SI24R1_Rx_Buff[i] != TX_ADDRESS[i])
+		{
+			return 1; // 检测失败
+		}
+	}
+	return 0; // 检测成功
+}
+
+/**
+ * @brief SI24R1初始化函数
+ * @note 该函数会检查SI24R1模块是否正常工作，并将其设置为发送模式	
+ * @param None
+ */
+void SI24R1_Init(void)
+{
+	HAL_Delay(100); // 等待SI24R1模块上电稳定
+	while (SI24R1_Check()) // 检查SI24R1模块是否正常工作
+	{
+		HAL_Delay(100); // 如果检查失败，等待一段时间后重试
+	}
+	SI24R1_RX_Mode();
+	debug_printf("SI24R1_Init Success\r\n");
 }

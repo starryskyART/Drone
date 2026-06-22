@@ -6,6 +6,7 @@
 #include "task.h"
 #include "Com_debug.h"
 #include "Power.h"
+#include "SI24R1.h"
 
 
 void App_RTOS_Start(void);

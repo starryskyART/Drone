@@ -195,7 +195,7 @@ uint8_t SI24R1_Check(void)
 
 /**
  * @brief SI24R1初始化函数
- * @note 该函数会检查SI24R1模块是否正常工作，并将其设置为发送模式	
+ * @note 该函数会检查SI24R1模块是否正常工作，并将其设置为接收模式	
  * @param None
  */
 void SI24R1_Init(void)

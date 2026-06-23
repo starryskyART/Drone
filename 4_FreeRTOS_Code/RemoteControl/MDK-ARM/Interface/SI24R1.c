@@ -155,8 +155,15 @@ uint8_t SI24R1_TxPacket(uint8_t *txbuf)
 	CE_HIGH;											  // CE置高，使能发送
 
 	// while (IRQ == 1);												// 等待发送完成
-	state = SI24R1_Read_Reg(SI24R1_READ_REG + STATUS);	// 读取状态寄存器的值
+	state = SI24R1_Read_Reg(STATUS); // 读取状态寄存器的值
+
+	while ((state & TX_DS) == 0 && (state & MAX_RT) == 0)
+	{
+		state = SI24R1_Read_Reg(STATUS); // 读取状态寄存器的值
+		vTaskDelay(1); // 延时1ms，避免死循环
+	}
 	SI24R1_Write_Reg(SI24R1_WRITE_REG + STATUS, state); // 清除TX_DS或MAX_RT中断标志
+
 	if (state & MAX_RT)									// 达到最大重发次数
 	{
 		SI24R1_Write_Reg(FLUSH_TX, 0xff); // 清除TX FIFO寄存器
@@ -195,15 +202,15 @@ uint8_t SI24R1_Check(void)
 
 /**
  * @brief SI24R1初始化函数
- * @note 该函数会检查SI24R1模块是否正常工作，并将其设置为接收模式	
+ * @note 该函数会检查SI24R1模块是否正常工作，并将其设置为接收模式
  * @param None
  */
 void SI24R1_Init(void)
 {
-	HAL_Delay(100); // 等待SI24R1模块上电稳定
-	while (SI24R1_Check()) // 检查SI24R1模块是否正常工作
+	HAL_Delay(200);				// 等待SI24R1模块上电稳定
+	while (SI24R1_Check() == 1) // 检查SI24R1模块是否正常工作
 	{
-		HAL_Delay(100); // 如果检查失败，等待一段时间后重试
+		HAL_Delay(10); // 如果检查失败，等待一段时间后重试
 	}
 	SI24R1_RX_Mode();
 	debug_printf("SI24R1_Init Success\r\n");

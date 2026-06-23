@@ -42,7 +42,7 @@ LED_Struct right_bottom_led = {.Port = LED3_GPIO_Port, .Pin = LED3_Pin};
 LED_Struct left_bottom_led = {.Port = LED4_GPIO_Port, .Pin = LED4_Pin};
 
 // 当前连接状态
-Remote_State remote_state = REMOTE_CONNECTED; // 遥控器已连接状态
+Remote_State remote_state = REMOTE_DISCONNECTED; // 遥控器已连接状态
 
 // 表示当前飞行状态
 Flight_State flight_state = IDLE; // 初始飞行状态为IDLE

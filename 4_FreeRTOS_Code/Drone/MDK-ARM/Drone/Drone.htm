@@ -3,7 +3,7 @@
 <title>Static Call Graph - [Drone\Drone.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image Drone\Drone.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Mon Jun 22 23:25:59 2026
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060528: Last Updated: Tue Jun 23 20:29:29 2026
 <BR><P>
 <H3>Maximum Stack Usage =        176 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -320,11 +320,11 @@ Global Symbols
 <P><STRONG><a name="[3b]"></a>Com_Task</STRONG> (Thumb, 72 bytes, Stack size 8 bytes, app_rtos_task.o(i.Com_Task))
 <BR><BR>[Stack]<UL><LI>Max Depth = 176<LI>Call Chain = Com_Task &rArr; SI24R1_RxPacket &rArr; SI24R1_Read_Buf &rArr; SPI_RW &rArr; HAL_SPI_TransmitReceive &rArr; SPI_EndRxTxTransaction &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskGetTickCount
-<LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskDelayUntil
+<BR>[Calls]<UL><LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskDelayUntil
 <LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 <LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strrchr
 <LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SI24R1_RxPacket
+<LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskGetTickCount
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> app_rtos_task.o(i.APP_RTOS_Start)
 </UL>
@@ -344,8 +344,8 @@ Global Symbols
 <P><STRONG><a name="[39]"></a>Flight_Task</STRONG> (Thumb, 20 bytes, Stack size 8 bytes, app_rtos_task.o(i.Flight_Task))
 <BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = Flight_Task &rArr; xTaskDelayUntil &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
-<BR>[Calls]<UL><LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskGetTickCount
-<LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskDelayUntil
+<BR>[Calls]<UL><LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskDelayUntil
+<LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskGetTickCount
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> app_rtos_task.o(i.APP_RTOS_Start)
 </UL>
@@ -636,11 +636,11 @@ Global Symbols
 <P><STRONG><a name="[3a]"></a>LED_Task</STRONG> (Thumb, 184 bytes, Stack size 8 bytes, app_rtos_task.o(i.LED_Task))
 <BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = LED_Task &rArr; xTaskDelayUntil &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
-<BR>[Calls]<UL><LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskGetTickCount
-<LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskDelayUntil
+<BR>[Calls]<UL><LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskDelayUntil
 <LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_Turn_On
 <LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_Turn_Off
 <LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_Toggle
+<LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskGetTickCount
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> app_rtos_task.o(i.APP_RTOS_Start)
 </UL>
@@ -774,9 +774,9 @@ Global Symbols
 <P><STRONG><a name="[38]"></a>Power_Task</STRONG> (Thumb, 26 bytes, Stack size 8 bytes, app_rtos_task.o(i.Power_Task))
 <BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = Power_Task &rArr; xTaskDelayUntil &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
-<BR>[Calls]<UL><LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskGetTickCount
-<LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskDelayUntil
+<BR>[Calls]<UL><LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskDelayUntil
 <LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Power_Init
+<LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskGetTickCount
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> app_rtos_task.o(i.APP_RTOS_Start)
 </UL>
@@ -951,10 +951,10 @@ Global Symbols
 <P><STRONG><a name="[aa]"></a>pvPortMalloc</STRONG> (Thumb, 208 bytes, Stack size 32 bytes, heap_4.o(i.pvPortMalloc))
 <BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = pvPortMalloc &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
-<BR>[Calls]<UL><LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInsertBlockIntoFreeList
-<LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvHeapInit
-<LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
+<BR>[Calls]<UL><LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
 <LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskSuspendAll
+<LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInsertBlockIntoFreeList
+<LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvHeapInit
 </UL>
 <BR>[Called By]<UL><LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
 </UL>
@@ -997,9 +997,9 @@ Global Symbols
 <P><STRONG><a name="[a5]"></a>vPortFree</STRONG> (Thumb, 68 bytes, Stack size 16 bytes, heap_4.o(i.vPortFree))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = vPortFree &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
-<BR>[Calls]<UL><LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInsertBlockIntoFreeList
-<LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
+<BR>[Calls]<UL><LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
 <LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskSuspendAll
+<LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInsertBlockIntoFreeList
 </UL>
 <BR>[Called By]<UL><LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
 <LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvDeleteTCB
@@ -1022,8 +1022,8 @@ Global Symbols
 <P><STRONG><a name="[48]"></a>vTaskStartScheduler</STRONG> (Thumb, 76 bytes, Stack size 16 bytes, tasks.o(i.vTaskStartScheduler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 160<LI>Call Chain = vTaskStartScheduler &rArr; xTaskCreate &rArr; pvPortMalloc &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
-<BR>[Calls]<UL><LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xPortStartScheduler
-<LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
+<BR>[Calls]<UL><LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
+<LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xPortStartScheduler
 </UL>
 <BR>[Called By]<UL><LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;APP_RTOS_Start
 </UL>
@@ -1105,10 +1105,10 @@ Global Symbols
 <P><STRONG><a name="[ae]"></a>xTaskResumeAll</STRONG> (Thumb, 310 bytes, Stack size 16 bytes, tasks.o(i.xTaskResumeAll))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskIncrementTick
-<LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvResetNextTaskUnblockTime
+<BR>[Calls]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvResetNextTaskUnblockTime
 <LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortExitCritical
 <LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortEnterCritical
+<LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskIncrementTick
 </UL>
 <BR>[Called By]<UL><LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskDelayUntil
 <LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
@@ -1257,8 +1257,8 @@ Local Symbols
 <P><STRONG><a name="[a6]"></a>prvInitialiseNewTask</STRONG> (Thumb, 122 bytes, Stack size 56 bytes, tasks.o(i.prvInitialiseNewTask))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = prvInitialiseNewTask
 </UL>
-<BR>[Calls]<UL><LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pxPortInitialiseStack
-<LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInitialiseItem
+<BR>[Calls]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInitialiseItem
+<LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pxPortInitialiseStack
 </UL>
 <BR>[Called By]<UL><LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
 </UL>
@@ -1272,8 +1272,8 @@ Local Symbols
 </UL>
 
 <P><STRONG><a name="[b3]"></a>prvResetNextTaskUnblockTime</STRONG> (Thumb, 40 bytes, Stack size 0 bytes, tasks.o(i.prvResetNextTaskUnblockTime))
-<BR><BR>[Called By]<UL><LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskIncrementTick
-<LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
+<BR><BR>[Called By]<UL><LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
+<LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskIncrementTick
 </UL>
 
 <P><STRONG><a name="[ac]"></a>prvHeapInit</STRONG> (Thumb, 90 bytes, Stack size 12 bytes, heap_4.o(i.prvHeapInit))

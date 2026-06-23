@@ -34,3 +34,12 @@ drone\si24r1.o: ../Core/Inc/usart.h
 drone\si24r1.o: D:\App\Keil\Keil Core\ARM\ARMCC\Bin\..\include\stdio.h
 drone\si24r1.o: D:\App\Keil\Keil Core\ARM\ARMCC\Bin\..\include\stdarg.h
 drone\si24r1.o: D:\App\Keil\Keil Core\ARM\ARMCC\Bin\..\include\string.h
+drone\si24r1.o: ./RTOS/include/FreeRTOS.h
+drone\si24r1.o: ./RTOS/FreeRTOSConfig.h
+drone\si24r1.o: ./RTOS/include/projdefs.h
+drone\si24r1.o: ./RTOS/include/portable.h
+drone\si24r1.o: ./RTOS/include/deprecated_definitions.h
+drone\si24r1.o: ./RTOS/portable/portmacro.h
+drone\si24r1.o: ./RTOS/include/mpu_wrappers.h
+drone\si24r1.o: ./RTOS/include/task.h
+drone\si24r1.o: ./RTOS/include/list.h

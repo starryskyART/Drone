@@ -915,6 +915,16 @@
               <FileType>5</FileType>
               <FilePath>.\Interface\SI24R1.h</FilePath>
             </File>
+            <File>
+              <FileName>KEY.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Interface\KEY.c</FilePath>
+            </File>
+            <File>
+              <FileName>KEY.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Interface\KEY.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

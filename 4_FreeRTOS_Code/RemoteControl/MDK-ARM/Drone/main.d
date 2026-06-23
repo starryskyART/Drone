@@ -46,3 +46,4 @@ drone\main.o: D:\App\Keil\Keil Core\ARM\ARMCC\Bin\..\include\stdarg.h
 drone\main.o: D:\App\Keil\Keil Core\ARM\ARMCC\Bin\..\include\string.h
 drone\main.o: ./Interface/Power.h
 drone\main.o: ./Interface/SI24R1.h
+drone\main.o: ./Interface/KEY.h

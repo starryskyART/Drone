@@ -5,7 +5,10 @@
 #include "FreeRTOS.h"
 #include "task.h"
 
-
+/**
+ * @brief 按键类型枚举
+ * 
+ */
 typedef enum
 {
     KEY_NONE = 0,
@@ -15,6 +18,7 @@ typedef enum
     KEY_RIGHT,
     KEY_LEFT_X,
     KEY_RIGHT_X,
+    KEY_RIGHT_X_LONG,
 }Key_type;
 
 

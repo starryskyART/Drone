@@ -57,8 +57,6 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define KEY_LEFT_X_Pin GPIO_PIN_2
-#define KEY_LEFT_X_GPIO_Port GPIOB
 #define KEY_RIGHT_X_Pin GPIO_PIN_10
 #define KEY_RIGHT_X_GPIO_Port GPIOB
 #define KEY_UP_Pin GPIO_PIN_11
@@ -75,6 +73,8 @@ void Error_Handler(void);
 #define SPI1_NSS_GPIO_Port GPIOA
 #define SI_EN_Pin GPIO_PIN_7
 #define SI_EN_GPIO_Port GPIOB
+#define KEY_LEFT_X_Pin GPIO_PIN_8
+#define KEY_LEFT_X_GPIO_Port GPIOB
 
 /* USER CODE BEGIN Private defines */
 

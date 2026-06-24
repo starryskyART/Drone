@@ -8,6 +8,11 @@
 #include "Power.h"
 #include "SI24R1.h"
 #include "KEY.h"
+#include "Joystick.h"
+
+
+
+
 
 
 void App_RTOS_Start(void);

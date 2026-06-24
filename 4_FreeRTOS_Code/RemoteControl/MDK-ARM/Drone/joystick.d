@@ -1,0 +1,33 @@
+drone\joystick.o: Interface\Joystick.c
+drone\joystick.o: Interface\Joystick.h
+drone\joystick.o: ../Core/Inc/adc.h
+drone\joystick.o: ../Core/Inc/main.h
+drone\joystick.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h
+drone\joystick.o: ../Core/Inc/stm32f1xx_hal_conf.h
+drone\joystick.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h
+drone\joystick.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h
+drone\joystick.o: ../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h
+drone\joystick.o: ../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h
+drone\joystick.o: ../Drivers/CMSIS/Include/core_cm3.h
+drone\joystick.o: D:\App\Keil\Keil Core\ARM\ARMCC\Bin\..\include\stdint.h
+drone\joystick.o: ../Drivers/CMSIS/Include/cmsis_version.h
+drone\joystick.o: ../Drivers/CMSIS/Include/cmsis_compiler.h
+drone\joystick.o: ../Drivers/CMSIS/Include/cmsis_armcc.h
+drone\joystick.o: ../Drivers/CMSIS/Device/ST/STM32F1xx/Include/system_stm32f1xx.h
+drone\joystick.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h
+drone\joystick.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h
+drone\joystick.o: D:\App\Keil\Keil Core\ARM\ARMCC\Bin\..\include\stddef.h
+drone\joystick.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc_ex.h
+drone\joystick.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio.h
+drone\joystick.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio_ex.h
+drone\joystick.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_exti.h
+drone\joystick.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma.h
+drone\joystick.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma_ex.h
+drone\joystick.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_cortex.h
+drone\joystick.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_adc.h
+drone\joystick.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_adc_ex.h
+drone\joystick.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash.h
+drone\joystick.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h
+drone\joystick.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h
+drone\joystick.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h
+drone\joystick.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h

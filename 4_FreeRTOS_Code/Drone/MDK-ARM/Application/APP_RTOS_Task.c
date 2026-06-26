@@ -1,7 +1,7 @@
 #include "APP_RTOS_Task.h"
 
-// 测试接收数据
-uint8_t test_buf[TX_PLOAD_WIDTH];
+
+
 
 // 任务优先级定义
 #define Power_Task_PRIORITY 4  // 电源管理任务优先级
@@ -141,6 +141,9 @@ void LED_Task(void *args)
     }
 }
 
+
+uint8_t ReceiveData_buffer[TX_PLOAD_WIDTH + 1] = {0}; // 定义一个静态接收缓冲区
+
 // 通讯任务
 void Com_Task(void *args)
 {
@@ -148,10 +151,10 @@ void Com_Task(void *args)
 
     while (1)
     {
-        uint8_t state = SI24R1_RxPacket(test_buf); // 从SI24R1接收数据到test_buf缓冲区
+        uint8_t state = SI24R1_RxPacket(ReceiveData_buffer); // 从SI24R1接收数据到ReceiveData_buffer缓冲区
         if (state == 0)
         {
-            debug_printf("Received data: %s", test_buf); // 打印接收到的数据
+            debug_printf("Received data: %s", ReceiveData_buffer); // 打印接收到的数据
         }
         xTaskDelayUntil(&xLastWakeTime, COM_TASK_PERIOD); // 每隔COM_TASK_PERIODms执行一次
     }

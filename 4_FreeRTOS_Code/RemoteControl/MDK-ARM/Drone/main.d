@@ -50,7 +50,8 @@ drone\main.o: D:\App\Keil\Keil Core\ARM\ARMCC\Bin\..\include\stdarg.h
 drone\main.o: D:\App\Keil\Keil Core\ARM\ARMCC\Bin\..\include\string.h
 drone\main.o: ./Interface/Power.h
 drone\main.o: ./Interface/SI24R1.h
-drone\main.o: ./Interface/APP_ProcessData.h
+drone\main.o: ./Application/APP_ProcessData.h
 drone\main.o: ./Interface/Joystick.h
 drone\main.o: ./common/Com_tool.h
 drone\main.o: ./Interface/KEY.h
+drone\main.o: ./Application/APP_TransmitData.h

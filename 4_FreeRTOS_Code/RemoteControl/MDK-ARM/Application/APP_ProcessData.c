@@ -126,5 +126,5 @@ void APP_ProcessJoystickData(void)
     remote_Data.roll = Joystick_Data.roll;
 
     taskEXIT_CRITICAL(); // 退出临界区
-    debug_printf(": %d, %d, %d, %d\n", remote_Data.throttle, remote_Data.yaw, remote_Data.pitch, remote_Data.roll); // 打印遥感值
+    // debug_printf(": %d, %d, %d, %d\n", remote_Data.throttle, remote_Data.yaw, remote_Data.pitch, remote_Data.roll); // 打印遥感值
 }

@@ -13,7 +13,7 @@
 #define CE_HIGH HAL_GPIO_WritePin(SI_EN_GPIO_Port, SI_EN_Pin, GPIO_PIN_SET);        // 拉高CE
 #define RF_CHANNEL 40                                                               // 定义RF通道
 #define TX_ADR_WIDTH 5                                                              // 5字节宽度的发送/接收地址
-#define TX_PLOAD_WIDTH 32                                                           // 数据通道有效数据宽度
+#define TX_PLOAD_WIDTH 17                                                           // 数据通道有效数据宽度
 
 //********************************************************************************************************************//
 // SPI(SI24R1) commands

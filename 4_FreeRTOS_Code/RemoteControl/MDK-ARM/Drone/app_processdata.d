@@ -1,6 +1,6 @@
-drone\app_processdata.o: Interface\APP_ProcessData.c
-drone\app_processdata.o: Interface\APP_ProcessData.h
-drone\app_processdata.o: Interface\Joystick.h
+drone\app_processdata.o: Application\APP_ProcessData.c
+drone\app_processdata.o: Application\APP_ProcessData.h
+drone\app_processdata.o: ./Interface/Joystick.h
 drone\app_processdata.o: ../Core/Inc/adc.h
 drone\app_processdata.o: ../Core/Inc/main.h
 drone\app_processdata.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h
@@ -33,7 +33,7 @@ drone\app_processdata.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h
 drone\app_processdata.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h
 drone\app_processdata.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h
 drone\app_processdata.o: ./common/Com_tool.h
-drone\app_processdata.o: Interface\KEY.h
+drone\app_processdata.o: ./Interface/KEY.h
 drone\app_processdata.o: ./RTOS/include/FreeRTOS.h
 drone\app_processdata.o: ./RTOS/FreeRTOSConfig.h
 drone\app_processdata.o: ./RTOS/include/projdefs.h

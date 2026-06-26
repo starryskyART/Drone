@@ -47,8 +47,9 @@ drone\app_rtos_task.o: D:\App\Keil\Keil Core\ARM\ARMCC\Bin\..\include\string.h
 drone\app_rtos_task.o: ./Interface/Power.h
 drone\app_rtos_task.o: ./Interface/SI24R1.h
 drone\app_rtos_task.o: ../Core/Inc/spi.h
-drone\app_rtos_task.o: ./Interface/APP_ProcessData.h
+drone\app_rtos_task.o: Application\APP_ProcessData.h
 drone\app_rtos_task.o: ./Interface/Joystick.h
 drone\app_rtos_task.o: ../Core/Inc/adc.h
 drone\app_rtos_task.o: ./common/Com_tool.h
 drone\app_rtos_task.o: ./Interface/KEY.h
+drone\app_rtos_task.o: Application\APP_TransmitData.h

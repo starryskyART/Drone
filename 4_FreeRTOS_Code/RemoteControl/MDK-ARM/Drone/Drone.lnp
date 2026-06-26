@@ -37,6 +37,7 @@
 "drone\port.o"
 "drone\app_rtos_task.o"
 "drone\app_processdata.o"
+"drone\app_transmitdata.o"
 "drone\power.o"
 "drone\si24r1.o"
 "drone\key.o"

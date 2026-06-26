@@ -6,8 +6,7 @@
 */
 
 
-// test
-uint8_t test_data[TX_PLOAD_WIDTH] = {0}; // 定义一个测试数据数组，长度为32字节
+
 
 // 定义任务堆栈大小
 #define Power_Task_STACK_SIZE 128    // Power_Task
@@ -60,16 +59,7 @@ void Com_Task(void *args)
     TickType_t xLastWakeTime = xTaskGetTickCount(); // 获取当前基准时间
     while (1)
     {
-        // 启动SI24R1通讯逻辑，芯片默认接收模式
-        SI24R1_TX_Mode(); // 切换到发送模式
-        test_data[0] = 'H';
-        test_data[1] = 'E';
-        test_data[2] = 'L';
-        test_data[3] = 'L';
-        test_data[4] = 'O';
-        test_data[5] = '!';
-        SI24R1_TxPacket(test_data);                       // 发送测试数据
-        SI24R1_RX_Mode();                                 // 切换到接收模式
+        APP_TransmitData(); // 发送遥感数据
         vTaskDelayUntil(&xLastWakeTime, Com_Task_Period); // 每次执行间隔6ms，适合高频率任务
     }
 }

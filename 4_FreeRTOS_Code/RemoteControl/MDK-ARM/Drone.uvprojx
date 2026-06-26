@@ -1123,12 +1123,22 @@
             <File>
               <FileName>APP_ProcessData.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Interface\APP_ProcessData.c</FilePath>
+              <FilePath>.\Application\APP_ProcessData.c</FilePath>
             </File>
             <File>
               <FileName>APP_ProcessData.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Interface\APP_ProcessData.h</FilePath>
+              <FilePath>.\Application\APP_ProcessData.h</FilePath>
+            </File>
+            <File>
+              <FileName>APP_TransmitData.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Application\APP_TransmitData.c</FilePath>
+            </File>
+            <File>
+              <FileName>APP_TransmitData.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Application\APP_TransmitData.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -1174,11 +1184,6 @@
               <FileName>Joystick.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\Interface\Joystick.h</FilePath>
-            </File>
-            <File>
-              <FileName>APP_ProcessData.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Interface\APP_ProcessData.h</FilePath>
             </File>
           </Files>
         </Group>

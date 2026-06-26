@@ -5,11 +5,6 @@
 ////FreeRTOS的堆大小配置为17K，剩余的内存用于任务栈和其他用途。
 */
 
-/**
- * @brief 遥感结构体数据
- * 
- */
-Joystick_Stuct Joystick_Data = {0, 0, 0, 0}; // 定义一个遥感结构体变量，用于存储遥感数据
 
 // test
 uint8_t test_data[TX_PLOAD_WIDTH] = {0}; // 定义一个测试数据数组，长度为32字节
@@ -88,11 +83,7 @@ void KEY_Task(void *args)
     TickType_t xLastWakeTime = xTaskGetTickCount(); // 获取当前基准时间
     while (1)
     {
-        Key_type key = Key_Scan(); // 扫描按键状态
-        if (key != KEY_NONE)
-        {
-            debug_printf("Key Pressed: %d\n", key); // 打印按键状态
-        }
+       APP_ProcessKeyData(); // 处理按键数据
         vTaskDelayUntil(&xLastWakeTime, KEY_Task_Period);
     }
 }
@@ -107,8 +98,7 @@ void Joystick_Task(void *args)
     Joystick_Init(); // 初始化遥感
     while(1)
     {
-        Joystick_GetValue(&Joystick_Data); // 获取遥感值
-        debug_printf(": %d, %d, %d, %d\n", Joystick_Data.throttle, Joystick_Data.yaw, Joystick_Data.pitch, Joystick_Data.roll); // 打印遥感值
+        APP_ProcessJoystickData(); // 处理摇杆数据
         xTaskDelayUntil(&xLastWakeTime, Joystick_Task_Period); // 每次执行间隔20ms
     }
 }

@@ -935,6 +935,16 @@
               <FileType>5</FileType>
               <FilePath>.\common\Com_debug.h</FilePath>
             </File>
+            <File>
+              <FileName>Com_tool.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\common\Com_tool.c</FilePath>
+            </File>
+            <File>
+              <FileName>Com_tool.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\common\Com_tool.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -1110,6 +1120,16 @@
               <FileType>5</FileType>
               <FilePath>.\Application\APP_RTOS_Task.h</FilePath>
             </File>
+            <File>
+              <FileName>APP_ProcessData.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Interface\APP_ProcessData.c</FilePath>
+            </File>
+            <File>
+              <FileName>APP_ProcessData.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Interface\APP_ProcessData.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -1154,6 +1174,11 @@
               <FileName>Joystick.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\Interface\Joystick.h</FilePath>
+            </File>
+            <File>
+              <FileName>APP_ProcessData.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Interface\APP_ProcessData.h</FilePath>
             </File>
           </Files>
         </Group>

@@ -2,6 +2,8 @@
 #define __JOYSTICK_H
 
 #include "adc.h"
+#include "Com_tool.h"
+
 
 
 /**
@@ -10,10 +12,10 @@
  */
 typedef struct
 {
-    uint16_t throttle; // 油门
-    uint16_t yaw; // 偏航角
-    uint16_t pitch; // 俯仰角
-    uint16_t roll; // 横滚角
+    int16_t throttle; // 油门
+    int16_t yaw; // 偏航角
+    int16_t pitch; // 俯仰角
+    int16_t roll; // 横滚角
 }Joystick_Stuct;
 
 void Joystick_Init(void);

@@ -7,8 +7,7 @@
 #include "Com_debug.h"
 #include "Power.h"
 #include "SI24R1.h"
-#include "KEY.h"
-#include "Joystick.h"
+#include "APP_ProcessData.h"
 
 
 

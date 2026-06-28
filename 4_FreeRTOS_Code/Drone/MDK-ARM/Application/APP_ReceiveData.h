@@ -13,6 +13,9 @@
 #define FRAME_HEADER2 'h'
 #define FRAME_HEADER3 'y'
 
+#define Max_Connet 10 // 最大连接次数
+
 uint8_t ReceiveData(void);
+void Drone_Connect_State_Check(uint8_t res);
 
 #endif

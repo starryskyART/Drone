@@ -1,7 +1,9 @@
 #include "APP_ReceiveData.h"
 
-uint8_t Remote_ReceiveData[TX_PLOAD_WIDTH] = {0}; // 定义一个静态接收缓冲区
 Remote_Data remote_data = {0};                    // 定义一个静态遥控器数据结构体
+extern Remote_State remote_state;                 // 声明一个外部变量，表示飞行状态
+uint8_t connect_count = 0;                        // 记录遥控器连接次数
+uint8_t Remote_ReceiveData[TX_PLOAD_WIDTH] = {0}; // 定义一个静态接收缓冲区
 
 /**
  * @brief 接收遥控器数据
@@ -46,4 +48,23 @@ uint8_t ReceiveData(void)
     remote_data.fix_high = Remote_ReceiveData[12];
     // debug_printf(": %d, %d, %d, %d, %d, %d\n", remote_data.throttle, remote_data.yaw, remote_data.pitch, remote_data.roll, remote_data.shutdown, remote_data.fix_high);
     return 0; // 接收成功
+}
+
+void Drone_Connect_State_Check(uint8_t res)
+{
+
+    if (res == 0)
+    {
+        remote_state = REMOTE_CONNECTED; // 遥控器已连接，飞行状态为NORMAL
+        connect_count = 0;               // 一次连接成功后重置连接次数
+    }
+    else if (res == 1)
+    {
+        connect_count++; // 连接失败，增加连接失败次数
+        if (connect_count >= Max_Connet)
+        {
+            remote_state = REMOTE_DISCONNECTED; // 连接失败次数达到最大值，飞行状态为FAIL
+            connect_count = 0;                  // 重置连接次数
+        }
+    }
 }

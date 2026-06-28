@@ -12,9 +12,9 @@
  * @校验帧
  * 
  */
-#define FRAME_HEADER1 's'
-#define FRAME_HEADER2 'g'
-#define FRAME_HEADER3 'g'
+#define FRAME_HEADER1 'l'
+#define FRAME_HEADER2 'h'
+#define FRAME_HEADER3 'y'
 
 
 

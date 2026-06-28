@@ -34,6 +34,7 @@
 "drone\port.o"
 "drone\com_debug.o"
 "drone\app_rtos_task.o"
+"drone\app_receivedata.o"
 "drone\power.o"
 "drone\motor.o"
 "drone\led.o"

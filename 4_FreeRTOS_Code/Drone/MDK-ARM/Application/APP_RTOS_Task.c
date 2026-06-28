@@ -151,11 +151,7 @@ void Com_Task(void *args)
 
     while (1)
     {
-        uint8_t state = SI24R1_RxPacket(ReceiveData_buffer); // 从SI24R1接收数据到ReceiveData_buffer缓冲区
-        if (state == 0)
-        {
-            debug_printf("Received data: %s", ReceiveData_buffer); // 打印接收到的数据
-        }
+        ReceiveData();
         xTaskDelayUntil(&xLastWakeTime, COM_TASK_PERIOD); // 每隔COM_TASK_PERIODms执行一次
     }
 }

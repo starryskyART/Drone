@@ -151,7 +151,7 @@ uint8_t SI24R1_TxPacket(uint8_t *txbuf)
 {
 	uint8_t state;
 	CE_LOW;												  // CE拉低，使能SI24R1配置
-	SI24R1_Write_Buf(WR_TX_PLOAD, txbuf, TX_PLOAD_WIDTH); // 写数据到TX FIFO,32个字节
+	SI24R1_Write_Buf(WR_TX_PLOAD, txbuf, TX_PLOAD_WIDTH); // 写数据到TX FIFO,TX_PLOAD_WIDTH个字节
 	CE_HIGH;											  // CE置高，使能发送
 
 	// while (IRQ == 1);												// 等待发送完成

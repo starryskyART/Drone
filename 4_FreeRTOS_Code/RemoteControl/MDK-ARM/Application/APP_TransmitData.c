@@ -1,7 +1,7 @@
 #include "APP_TransmitData.h"
 
 extern Remote_Data remote_Data;              // 外部声明遥感数据结构体变量
-uint8_t transmit_buffer[TX_ADR_WIDTH] = {0}; // 定义一个发送缓冲区，用于存储遥感数据的字节流
+uint8_t transmit_buffer[TX_PLOAD_WIDTH] = {0}; // 定义一个发送缓冲区，用于存储遥感数据的字节流
 
 /**
  * @brief 发送数据函数

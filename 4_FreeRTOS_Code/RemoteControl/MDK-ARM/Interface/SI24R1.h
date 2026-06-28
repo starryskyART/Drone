@@ -6,13 +6,12 @@
 #include "FreeRTOS.h"
 #include "task.h"
 
-
 #define CS_LOW HAL_GPIO_WritePin(SPI1_NSS_GPIO_Port, SPI1_NSS_Pin, GPIO_PIN_RESET); // 拉低片选
 #define CS_HIGH HAL_GPIO_WritePin(SPI1_NSS_GPIO_Port, SPI1_NSS_Pin, GPIO_PIN_SET);  // 拉高片选
 #define CE_LOW HAL_GPIO_WritePin(SI_EN_GPIO_Port, SI_EN_Pin, GPIO_PIN_RESET);       // 拉低CE
 #define CE_HIGH HAL_GPIO_WritePin(SI_EN_GPIO_Port, SI_EN_Pin, GPIO_PIN_SET);        // 拉高CE
 #define RF_CHANNEL 40                                                               // 定义RF通道
-#define TX_ADR_WIDTH 5                                                              // 5字节宽度的发送/接收地址
+#define TX_ADR_WIDTH 5                                                              // 发送/接收地址宽度
 #define TX_PLOAD_WIDTH 17                                                           // 数据通道有效数据宽度
 
 //********************************************************************************************************************//

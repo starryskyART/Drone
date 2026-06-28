@@ -53,3 +53,4 @@ drone\main.o: ./Interface/Power.h
 drone\main.o: ./Interface/Motor.h
 drone\main.o: ./Interface/LED.h
 drone\main.o: ./Interface/SI24R1.h
+drone\main.o: ./Application/APP_ReceiveData.h

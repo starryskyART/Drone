@@ -95,8 +95,8 @@ int main(void)
   MX_USART1_UART_Init();
   MX_ADC1_Init();
   /* USER CODE BEGIN 2 */
-  SI24R1_Init(); // 初始化SI24R1模块
-	App_RTOS_Start(); // 启动FreeRTOS任务
+ SI24R1_Init(); // 初始化SI24R1模块
+ App_RTOS_Start(); // 启动FreeRTOS任务
 
   /* USER CODE END 2 */
 
@@ -104,7 +104,7 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-
+	debug_printf("Hello World");
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

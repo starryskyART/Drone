@@ -52,3 +52,4 @@ drone\app_rtos_task.o: ../Core/Inc/tim.h
 drone\app_rtos_task.o: ./Interface/LED.h
 drone\app_rtos_task.o: ./Interface/SI24R1.h
 drone\app_rtos_task.o: ../Core/Inc/spi.h
+drone\app_rtos_task.o: Application\APP_ReceiveData.h

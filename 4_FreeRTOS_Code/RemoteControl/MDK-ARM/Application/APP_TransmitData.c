@@ -50,7 +50,7 @@ void APP_TransmitData(void)
     transmit_buffer[14] = (checksum >> 16) & 0xFF;
     transmit_buffer[15] = (checksum >> 8) & 0xFF;
     transmit_buffer[16] = checksum & 0xFF; // 校验和低八位
-	debug_printf("Transmit Data: %d, %d, %d, %d, %d, %d\n", remote_Data.throttle, remote_Data.yaw, remote_Data.pitch, remote_Data.roll, remote_Data.shutdown, remote_Data.fix_high);
+//	debug_printf("Transmit Data: %d, %d, %d, %d, %d, %d\n", remote_Data.throttle, remote_Data.yaw, remote_Data.pitch, remote_Data.roll, remote_Data.shutdown, remote_Data.fix_high);
     SI24R1_TxPacket(transmit_buffer);      // 发送数据
     SI24R1_RX_Mode();                      // 切换到接收模式，等待接收数据
 }

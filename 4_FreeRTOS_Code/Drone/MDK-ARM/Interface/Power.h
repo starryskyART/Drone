@@ -10,8 +10,8 @@
 
 
 
-void Power_Init(void);
-
+void Power_Start(void);
+void Power_Shutdown(void);
 
 
 

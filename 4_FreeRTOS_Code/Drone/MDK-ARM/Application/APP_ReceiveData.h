@@ -4,6 +4,8 @@
 #include "SI24R1.h"
 #include "Com_debug.h"
 #include "Com_config.h"
+#include "FreeRTOS.h"
+#include "task.h"
 
 /**
  * @校验帧
@@ -17,5 +19,7 @@
 
 uint8_t ReceiveData(void);
 void Drone_Connect_State_Check(uint8_t res);
+void Drone_State(void);
+static uint8_t Drone_Unlock(void);
 
 #endif

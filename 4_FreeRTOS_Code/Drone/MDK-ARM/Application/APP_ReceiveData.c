@@ -1,7 +1,8 @@
 #include "APP_ReceiveData.h"
 
-Remote_Data remote_data = {0};                    // 定义一个静态遥控器数据结构体
-extern Remote_State remote_state;                 // 声明一个外部变量，表示飞行状态
+extern Remote_Data remote_data;                   // 声明外部静态遥控器数据结构体
+extern Remote_State remote_state;                 // 声明外部变量，表示飞行状态
+extern Flight_State flight_state;                 // 声明外部变量，表示飞行状态
 uint8_t connect_count = 0;                        // 记录遥控器连接次数
 uint8_t Remote_ReceiveData[TX_PLOAD_WIDTH] = {0}; // 定义一个静态接收缓冲区
 
@@ -50,6 +51,10 @@ uint8_t ReceiveData(void)
     return 0; // 接收成功
 }
 
+/**
+ * @brief 遥控器连接状态判断
+ *
+ */
 void Drone_Connect_State_Check(uint8_t res)
 {
 
@@ -66,5 +71,67 @@ void Drone_Connect_State_Check(uint8_t res)
             remote_state = REMOTE_DISCONNECTED; // 连接失败次数达到最大值，飞行状态为FAIL
             connect_count = 0;                  // 重置连接次数
         }
+    }
+}
+
+/**
+ * @brief 遥控器解锁判断
+ *
+ * @return uint8_t 返回1表示解锁失败，返回0表示解锁成功
+ */
+static uint8_t Drone_Unlock(void)
+{
+
+    return 0;
+}
+
+/**
+ * @brief 飞行状态判断
+ *
+ */
+void Drone_State(void)
+{
+    switch (flight_state)
+    {
+    case IDLE:
+        if (Drone_Unlock() == 0)
+        {
+            flight_state = NORMAL; // 解锁成功，飞行状态为NORMAL
+        }
+        break;
+    case NORMAL:
+        // 遥控器定高，飞行状态为FIX_HEIGHT
+        if (remote_data.fix_high == 1)
+        {
+            flight_state = FIX_HEIGHT; // 遥控器定高，飞行状态为FIX_HEIGHT
+            remote_data.fix_high = 0;  // 重置定高标志
+        }
+        // 遥控器断开连接，飞行状态为FAIL
+        if (remote_state == REMOTE_DISCONNECTED)
+        {
+            flight_state = FAIL; // 遥控器断开连接，飞行状态为FAIL
+        }
+        break;
+    case FIX_HEIGHT:
+        // 遥控器定高解除，飞行状态为NORMAL
+        if (remote_data.fix_high == 0)
+        {
+            flight_state = NORMAL; // 遥控器定高解除，飞行状态为NORMAL
+        }
+        // 遥控器断开连接，飞行状态为FAIL
+        if (remote_state == REMOTE_DISCONNECTED)
+        {
+            flight_state = FAIL; // 遥控器断开连接，飞行状态为FAIL
+        }
+        break;
+    case FAIL:
+        // 遥控器断开连接，飞控缓慢下降，直到降落
+        if (remote_state == REMOTE_CONNECTED)
+        {
+            flight_state = NORMAL; // 遥控器重新连接，飞行状态为NORMAL
+        }
+        break;
+    default:
+        break;
     }
 }

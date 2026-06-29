@@ -1,8 +1,5 @@
 #include "APP_RTOS_Task.h"
 
-
-
-
 // 任务优先级定义
 #define Power_Task_PRIORITY 4  // 电源管理任务优先级
 #define Flight_TASK_PRIORITY 3 // 飞行控制任务优先级
@@ -42,10 +39,12 @@ LED_Struct right_bottom_led = {.Port = LED3_GPIO_Port, .Pin = LED3_Pin};
 LED_Struct left_bottom_led = {.Port = LED4_GPIO_Port, .Pin = LED4_Pin};
 
 // 当前连接状态
-Remote_State remote_state = REMOTE_DISCONNECTED; // 遥控器已连接状态
+Remote_State remote_state = REMOTE_DISCONNECTED;      // 遥控器已连接状态
+Remote_Data remote_data = {0};                       // 遥控器数据结构体
+uint8_t ReceiveData_buffer[TX_PLOAD_WIDTH] = {0}; // 静态接收缓冲区
 
 // 表示当前飞行状态
-Flight_State flight_state = IDLE; // 初始飞行状态为IDLE
+Flight_State flight_state = NORMAL; // 初始飞行状态为NORMAL
 
 // 电源管理任务
 void Power_Task(void *args)
@@ -54,8 +53,20 @@ void Power_Task(void *args)
     TickType_t xLastWakeTime = xTaskGetTickCount();
     while (1)
     {
-        xTaskDelayUntil(&xLastWakeTime, POWER_TASK_PERIOD); // 每隔1秒执行一次
-        Power_Init();
+        // xTaskDelayUntil(&xLastWakeTime, POWER_TASK_PERIOD); // 每隔10秒执行一次
+        // 任务通知接收，等待遥控器关机信号,每隔10秒check一次是否收到遥控器关机信号
+        // ulTaskNotifyTake()函数会阻塞当前任务，直到收到通知或者超时，ulNotifyValue为收到的通知值，如果超时则为0
+        uint32_t res = ulTaskNotifyTake(pdTRUE, POWER_TASK_PERIOD); // 等待任务通知，阻塞直到收到通知
+        if (res != 0)
+        {
+            // 收到遥控器关机信号，执行关机操作
+            Power_Shutdown();
+        }
+        else
+        {
+            // 超时未收到遥控器关机信号，正常运行
+            Power_Start();
+        }
     }
 }
 
@@ -141,9 +152,6 @@ void LED_Task(void *args)
     }
 }
 
-
-uint8_t ReceiveData_buffer[TX_PLOAD_WIDTH + 1] = {0}; // 定义一个静态接收缓冲区
-
 // 通讯任务
 void Com_Task(void *args)
 {
@@ -152,6 +160,15 @@ void Com_Task(void *args)
     {
         uint8_t res = ReceiveData();
         Drone_Connect_State_Check(res); // 检查遥控器连接状态
+        if (remote_data.shutdown == 1)
+        {
+            // 使用Power_Shutdown()函数关闭电源可以实现
+            //  Power_Shutdown();但是为了体现RTOS系统的优势
+            //  使用RTOS直接任务通知 => 通知电源任务 => 电源任务执行关闭电源操作 => 电源任务需要接收任务通知
+            //  任务通知的好处是可以实现任务间的通信和同步，避免了直接调用函数可能带来的问题，比如任务优先级不同导致的阻塞等问题
+            xTaskNotifyGive(Power_Task_Handler); // 通知电源任务关闭电源
+        }
+        Drone_State(); // 检查飞行状态
         xTaskDelayUntil(&xLastWakeTime, COM_TASK_PERIOD); // 每隔COM_TASK_PERIODms执行一次
     }
 }

@@ -39,8 +39,9 @@ LED_Struct right_bottom_led = {.Port = LED3_GPIO_Port, .Pin = LED3_Pin};
 LED_Struct left_bottom_led = {.Port = LED4_GPIO_Port, .Pin = LED4_Pin};
 
 // 当前连接状态
-Remote_State remote_state = REMOTE_DISCONNECTED;      // 遥控器已连接状态
-Remote_Data remote_data = {0};                       // 遥控器数据结构体
+Remote_State remote_state = REMOTE_DISCONNECTED;  // 遥控器已连接状态
+Remote_Data remote_data = {0};                    // 遥控器数据结构体
+Throttle_State throttle_state = Free;             // 油门状态
 uint8_t ReceiveData_buffer[TX_PLOAD_WIDTH] = {0}; // 静态接收缓冲区
 
 // 表示当前飞行状态
@@ -168,7 +169,7 @@ void Com_Task(void *args)
             //  任务通知的好处是可以实现任务间的通信和同步，避免了直接调用函数可能带来的问题，比如任务优先级不同导致的阻塞等问题
             xTaskNotifyGive(Power_Task_Handler); // 通知电源任务关闭电源
         }
-        Drone_State(); // 检查飞行状态
+        Drone_State();                                    // 检查飞行状态
         xTaskDelayUntil(&xLastWakeTime, COM_TASK_PERIOD); // 每隔COM_TASK_PERIODms执行一次
     }
 }

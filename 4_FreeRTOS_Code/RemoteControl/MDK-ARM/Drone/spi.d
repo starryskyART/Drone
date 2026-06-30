@@ -1,0 +1,32 @@
+drone\spi.o: ../Core/Src/spi.c
+drone\spi.o: ../Core/Inc/spi.h
+drone\spi.o: ../Core/Inc/main.h
+drone\spi.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h
+drone\spi.o: ../Core/Inc/stm32f1xx_hal_conf.h
+drone\spi.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h
+drone\spi.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h
+drone\spi.o: ../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h
+drone\spi.o: ../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h
+drone\spi.o: ../Drivers/CMSIS/Include/core_cm3.h
+drone\spi.o: D:\App\Keil\Keil Core\ARM\ARMCC\Bin\..\include\stdint.h
+drone\spi.o: ../Drivers/CMSIS/Include/cmsis_version.h
+drone\spi.o: ../Drivers/CMSIS/Include/cmsis_compiler.h
+drone\spi.o: ../Drivers/CMSIS/Include/cmsis_armcc.h
+drone\spi.o: ../Drivers/CMSIS/Device/ST/STM32F1xx/Include/system_stm32f1xx.h
+drone\spi.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h
+drone\spi.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h
+drone\spi.o: D:\App\Keil\Keil Core\ARM\ARMCC\Bin\..\include\stddef.h
+drone\spi.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc_ex.h
+drone\spi.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio.h
+drone\spi.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio_ex.h
+drone\spi.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_exti.h
+drone\spi.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma.h
+drone\spi.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma_ex.h
+drone\spi.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_cortex.h
+drone\spi.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_adc.h
+drone\spi.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_adc_ex.h
+drone\spi.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash.h
+drone\spi.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h
+drone\spi.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h
+drone\spi.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h
+drone\spi.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h

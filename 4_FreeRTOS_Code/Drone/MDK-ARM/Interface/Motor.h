@@ -1,5 +1,5 @@
-#ifndef __MOTOR_H
-#define __MOTOR_H
+#ifndef __MOTOR_H__
+#define __MOTOR_H__
 
 #include  "tim.h"
 #include "Com_debug.h"

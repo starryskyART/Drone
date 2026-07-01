@@ -1,5 +1,5 @@
-#ifndef __COM_DEBUG_H
-#define __COM_DEBUG_H   
+#ifndef __COM_DEBUG_H__
+#define __COM_DEBUG_H__
 
 
 #include "stdio.h"

@@ -1,5 +1,5 @@
-#ifndef __APP_RTOS_TASK_H
-#define __APP_RTOS_TASK_H
+#ifndef __APP_RTOS_TASK_H__
+#define __APP_RTOS_TASK_H__
 
 
 #include "FreeRTOS.h"

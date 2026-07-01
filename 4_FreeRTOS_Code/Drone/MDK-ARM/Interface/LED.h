@@ -1,5 +1,5 @@
 #ifndef __LED_H
-#define __LED_H
+#define __LED_H__
 
 #include "main.h"
 

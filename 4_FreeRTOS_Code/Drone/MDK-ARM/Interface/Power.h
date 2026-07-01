@@ -1,5 +1,5 @@
-#ifndef __POWER_H
-#define __POWER_H
+#ifndef __POWER_H__
+#define __POWER_H__
 
 
 

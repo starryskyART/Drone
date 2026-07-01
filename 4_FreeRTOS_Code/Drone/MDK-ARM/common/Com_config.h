@@ -1,5 +1,5 @@
-#ifndef __COM_CONFIG_H
-#define __COM_CONFIG_H
+#ifndef __COM_CONFIG_H__
+#define __COM_CONFIG_H__
 
 #include "main.h"
 

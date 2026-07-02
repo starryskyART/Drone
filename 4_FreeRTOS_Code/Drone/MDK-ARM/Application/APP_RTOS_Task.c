@@ -76,12 +76,11 @@ void Flight_Task(void *args)
 {
     // 获取当前基准时间
     TickType_t xLastWakeTime = xTaskGetTickCount();
+    MPU6050_Init(); // 初始化MPU6050传感器
     while (1)
     {
-        // Motor_Start(&left_top_motor);
-        // Motor_Start(&left_bottom_motor);
-        // Motor_Start(&right_top_motor);
-        // Motor_Start(&right_bottom_motor);
+        // 获取三轴陀螺仪和三轴加速度计数据
+        APP_Flight_Get_Euler_Angle();
         xTaskDelayUntil(&xLastWakeTime, FLIGHT_TASK_PERIOD); // 每隔6ms执行一次
     }
 }

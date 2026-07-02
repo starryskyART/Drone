@@ -52,6 +52,38 @@ typedef enum
     LEAVE_MAX, // 油门达到最大值后离开最大值最长时间
     MIN,       // 油门最短持续时间
     UNLOCKED,  // 遥控器已解锁
-}Throttle_State;
+} Throttle_State;
+
+/**
+ * @brief 陀螺仪角速度数据结构体
+ *
+ */
+typedef struct
+{
+    int16_t gyro_x; // 陀螺仪X轴数据，向右飞为正
+    int16_t gyro_y; // 陀螺仪Y轴数据，向前飞为正
+    int16_t gyro_z; // 陀螺仪Z轴数据，向左转向为正
+} Gyro_Struct;
+
+/**
+ * @brief 加速度计数据结构体
+ *
+ */
+typedef struct
+{
+    int16_t accel_x; // 加速度计X轴数据
+    int16_t accel_y; // 加速度计Y轴数据
+    int16_t accel_z; // 加速度计Z轴数据
+} Accel_Struct;
+
+/**
+ * @brief 角速度和加速度数据结构体
+ * 
+ */
+typedef struct
+{
+    Gyro_Struct gyro;   // 陀螺仪数据
+    Accel_Struct accel; // 加速度计数据
+} IMU_Data;
 
 #endif

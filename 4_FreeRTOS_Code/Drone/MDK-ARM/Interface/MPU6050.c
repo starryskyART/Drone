@@ -53,5 +53,62 @@ void MPU6050_Init(void)
     // Set the sample rate divider to 500Hz
     // according to the Nyquist theorem, the sampling frequency should be greater than twice the signal frequency, so the sampling frequency should be greater than 500Hz
     // Since the task scheduling frequency is 6ms once, which is equivalent to 166.67Hz, the sampling frequency should be greater than 333.33Hz, so it is set to 500Hz
-    MPU6050_WriteData(SAMPLE_RATE_DIVIDER, 0x01); // Set the sample rate divider to 500Hz
+    MPU6050_WriteData(SAMPLE_RATE_DIVIDER, 0x01);
+    // Set the configuration register to 1, which sets the digital low-pass filter to 188Hz
+    MPU6050_WriteData(CONFIGURATION, 1);
+    // set the system clock source to PLL with X axis gyroscope reference
+    MPU6050_WriteData(PWR_MGMT_1, 0x01);
+    // Enable the PWR_MGMT_2 register to enable the accelerometer and gyroscope
+    MPU6050_WriteData(PWR_MGMT_2, 0x00);
+}
+
+/**
+ * @brief Gets the gyroscope data from the MPU6050 sensor.
+ *
+ * @param gyro_data pointer to the Gyro_Struct where the gyroscope data will be stored.
+ *
+ *
+ */
+void MPU6050_Get_Gyro(Gyro_Struct *gyro_data)
+{
+    uint8_t high_byte, low_byte = 0;
+    // storeg the values of the gyroscope registers from 0x43 to 0x48, high byte first, low byte second, in XYZ order
+    MPU6050_ReadData(GYRO_XOUT_H, &high_byte);
+    MPU6050_ReadData(GYRO_XOUT_L, &low_byte);
+    gyro_data->gyro_x = ((high_byte << 8) | low_byte);
+
+    MPU6050_ReadData(GYRO_YOUT_H, &high_byte);
+    MPU6050_ReadData(GYRO_YOUT_L, &low_byte);
+    gyro_data->gyro_y = ((high_byte << 8) | low_byte);
+
+    MPU6050_ReadData(GYRO_ZOUT_H, &high_byte);
+    MPU6050_ReadData(GYRO_ZOUT_L, &low_byte);
+    gyro_data->gyro_z = ((high_byte << 8) | low_byte);
+}
+
+/**
+ * @brief Gets the accelerometer data from the MPU6050 sensor.
+ *
+ * @param accel_data pointer to the Accel_Struct where the accelerometer data will be stored.
+ *
+ */
+void MPU6050_Get_Accel(Accel_Struct *accel_data)
+{
+    uint8_t high_byte, low_byte = 0;
+    // storeg the values of the accelerometer registers from 0x3B to 0x40, high byte first, low byte second, in XYZ order
+    MPU6050_ReadData(ACCEL_XOUT_H, &high_byte);
+    MPU6050_ReadData(ACCEL_XOUT_L, &low_byte);
+    accel_data->accel_x = ((high_byte << 8) | low_byte);
+    MPU6050_ReadData(ACCEL_YOUT_H, &high_byte);
+    MPU6050_ReadData(ACCEL_YOUT_L, &low_byte);
+    accel_data->accel_y = ((high_byte << 8) | low_byte);
+    MPU6050_ReadData(ACCEL_ZOUT_H, &high_byte);
+    MPU6050_ReadData(ACCEL_ZOUT_L, &low_byte);
+    accel_data->accel_z = ((high_byte << 8) | low_byte);
+}
+
+void MPU6050_Get_IMU(IMU_Data *imu_data)
+{
+    MPU6050_Get_Gyro(&imu_data->gyro);
+    MPU6050_Get_Accel(&imu_data->accel);
 }

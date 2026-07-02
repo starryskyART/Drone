@@ -1180,6 +1180,16 @@
               <FileType>5</FileType>
               <FilePath>.\Application\APP_ReceiveData.h</FilePath>
             </File>
+            <File>
+              <FileName>APP_Flight.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Interface\APP_Flight.c</FilePath>
+            </File>
+            <File>
+              <FileName>APP_Flight.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Interface\APP_Flight.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

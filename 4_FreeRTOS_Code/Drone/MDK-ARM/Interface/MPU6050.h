@@ -3,6 +3,10 @@
 
 #include "i2c.h"
 #include "Com_config.h"
+#include "Com_debug.h"
+#include "FreeRTOS.h"
+#include "task.h"
+#include "stdlib.h"
 
 
 
@@ -39,5 +43,7 @@ void MPU6050_WriteData(uint8_t reg, uint8_t data);
 void MPU6050_Get_Gyro(Gyro_Struct *gyro_data);
 void MPU6050_Get_Accel(Accel_Struct *accel_data);
 void MPU6050_Get_IMU(IMU_Data *imu_data);
+void MPU6050_Calculate_Offset(void);
+
 
 #endif

@@ -1,5 +1,14 @@
 #include "MPU6050.h"
 
+/// Global variables to store the gyroscope offsets and accelerometer offsets
+int32_t gyro_offset_x = 0;
+int32_t gyro_offset_y = 0;
+int32_t gyro_offset_z = 0;
+
+int32_t accel_offset_x = 0;
+int32_t accel_offset_y = 0;
+int32_t accel_offset_z = 0;
+
 /**
  * @brief Writes data to a specific register of the MPU6050 sensor.
  *
@@ -60,6 +69,9 @@ void MPU6050_Init(void)
     MPU6050_WriteData(PWR_MGMT_1, 0x01);
     // Enable the PWR_MGMT_2 register to enable the accelerometer and gyroscope
     MPU6050_WriteData(PWR_MGMT_2, 0x00);
+
+    // Calculate the offset of the MPU6050 sensor
+    MPU6050_Calculate_Offset();
 }
 
 /**
@@ -75,15 +87,15 @@ void MPU6050_Get_Gyro(Gyro_Struct *gyro_data)
     // storeg the values of the gyroscope registers from 0x43 to 0x48, high byte first, low byte second, in XYZ order
     MPU6050_ReadData(GYRO_XOUT_H, &high_byte);
     MPU6050_ReadData(GYRO_XOUT_L, &low_byte);
-    gyro_data->gyro_x = ((high_byte << 8) | low_byte);
+    gyro_data->gyro_x = ((high_byte << 8) | low_byte) - gyro_offset_x;
 
     MPU6050_ReadData(GYRO_YOUT_H, &high_byte);
     MPU6050_ReadData(GYRO_YOUT_L, &low_byte);
-    gyro_data->gyro_y = ((high_byte << 8) | low_byte);
+    gyro_data->gyro_y = ((high_byte << 8) | low_byte) - gyro_offset_y;
 
     MPU6050_ReadData(GYRO_ZOUT_H, &high_byte);
     MPU6050_ReadData(GYRO_ZOUT_L, &low_byte);
-    gyro_data->gyro_z = ((high_byte << 8) | low_byte);
+    gyro_data->gyro_z = ((high_byte << 8) | low_byte) - gyro_offset_z;
 }
 
 /**
@@ -98,13 +110,71 @@ void MPU6050_Get_Accel(Accel_Struct *accel_data)
     // storeg the values of the accelerometer registers from 0x3B to 0x40, high byte first, low byte second, in XYZ order
     MPU6050_ReadData(ACCEL_XOUT_H, &high_byte);
     MPU6050_ReadData(ACCEL_XOUT_L, &low_byte);
-    accel_data->accel_x = ((high_byte << 8) | low_byte);
+    accel_data->accel_x = ((high_byte << 8) | low_byte) - accel_offset_x;
     MPU6050_ReadData(ACCEL_YOUT_H, &high_byte);
     MPU6050_ReadData(ACCEL_YOUT_L, &low_byte);
-    accel_data->accel_y = ((high_byte << 8) | low_byte);
+    accel_data->accel_y = ((high_byte << 8) | low_byte) - accel_offset_y;
     MPU6050_ReadData(ACCEL_ZOUT_H, &high_byte);
     MPU6050_ReadData(ACCEL_ZOUT_L, &low_byte);
-    accel_data->accel_z = ((high_byte << 8) | low_byte);
+    accel_data->accel_z = ((high_byte << 8) | low_byte) - accel_offset_z;
+}
+
+/**
+ * @brief Calculates the offset of the MPU6050 sensor.
+ *
+ */
+void MPU6050_Calculate_Offset(void)
+{
+    Accel_Struct accel_current = {0};
+    Accel_Struct accel_last = {0};
+    MPU6050_Get_Accel(&accel_last);
+    uint8_t count = 0;
+    // Zero the offset values
+    while (count < 100)
+    {
+        MPU6050_Get_Accel(&accel_current);
+        if (abs(accel_current.accel_x - accel_last.accel_x) < 400 && abs(accel_current.accel_y - accel_last.accel_y) < 400 && abs(accel_current.accel_z - accel_last.accel_z) < 400)
+        {
+            count++;
+        }
+        else
+        {
+            count = 0;
+        }
+        accel_last = accel_current;
+        vTaskDelay(6);
+    }
+    // Drone is stationary, calculate the offset
+    IMU_Data imu_data = {0};
+    int32_t gyro_sum_x = 0;
+    int32_t gyro_sum_y = 0;
+    int32_t gyro_sum_z = 0;
+
+    int32_t accel_sum_x = 0;
+    int32_t accel_sum_y = 0;
+    int32_t accel_sum_z = 0;
+    for (uint8_t i = 0; i < 100; i++)
+    {
+        MPU6050_Get_IMU(&imu_data);
+        gyro_sum_x += (imu_data.gyro.gyro_x) - 0;
+        gyro_sum_y += (imu_data.gyro.gyro_y) - 0;
+        // Note: The Z-axis gyroscope offset is adjusted by subtracting 16384 to account for the effect of gravity on the Z-axis.
+        // This is because when the drone is stationary, the Z-axis accelerometer will measure the acceleration due to gravity, which is approximately 1g (16384 in raw data). Therefore, we need to subtract this value from the Z-axis gyroscope reading to get the true offset.
+        gyro_sum_z += (imu_data.gyro.gyro_z - 16384); // Subtract 16384 to account for gravity on the Z-axis
+
+        accel_sum_x += (imu_data.accel.accel_x) - 0;
+        accel_sum_y += (imu_data.accel.accel_y) - 0;
+        accel_sum_z += (imu_data.accel.accel_z) - 0;
+
+        vTaskDelay(6);
+    }
+    accel_offset_x = accel_sum_x / 100;
+    accel_offset_y = accel_sum_y / 100;
+    accel_offset_z = accel_sum_z / 100;
+
+    gyro_offset_x = gyro_sum_x / 100;
+    gyro_offset_y = gyro_sum_y / 100;
+    gyro_offset_z = gyro_sum_z / 100;
 }
 
 void MPU6050_Get_IMU(IMU_Data *imu_data)

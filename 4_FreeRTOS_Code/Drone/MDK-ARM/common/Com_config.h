@@ -71,9 +71,9 @@ typedef struct
  */
 typedef struct
 {
-    int16_t accel_x; // 加速度计X轴数据
-    int16_t accel_y; // 加速度计Y轴数据
-    int16_t accel_z; // 加速度计Z轴数据
+    int16_t accel_x; // 加速度计X轴数据，向前加速度为正
+    int16_t accel_y; // 加速度计Y轴数据，向右加速度为正
+    int16_t accel_z; // 加速度计Z轴数据,朝上加速度为正
 } Accel_Struct;
 
 /**

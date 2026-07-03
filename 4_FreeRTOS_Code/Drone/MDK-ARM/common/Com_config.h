@@ -86,4 +86,16 @@ typedef struct
     Accel_Struct accel; // 加速度计数据
 } IMU_Data;
 
+/**
+ * @brief 解算得到的欧拉角
+ *
+ */
+typedef struct
+{
+    int16_t yaw;
+    int16_t pitch;
+    int16_t roll;
+} Euler_struct;
+
+
 #endif

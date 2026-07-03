@@ -1155,6 +1155,16 @@
               <FileType>5</FileType>
               <FilePath>.\common\Com_config.h</FilePath>
             </File>
+            <File>
+              <FileName>Com_filter.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\common\Com_filter.c</FilePath>
+            </File>
+            <File>
+              <FileName>Com_filter.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\common\Com_filter.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

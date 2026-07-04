@@ -90,7 +90,7 @@ void LED_Task(void *args)
 {
     // 获取当前基准时间
     TickType_t xLastWakeTime = xTaskGetTickCount();
-    uint8_t count;
+    uint8_t count = 0;
     while (1)
     {
         count++;

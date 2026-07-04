@@ -158,13 +158,12 @@ void MPU6050_Calculate_Offset(void)
         MPU6050_Get_IMU(&imu_data);
         gyro_sum_x += (imu_data.gyro.gyro_x) - 0;
         gyro_sum_y += (imu_data.gyro.gyro_y) - 0;
+        gyro_sum_z += (imu_data.gyro.gyro_z) - 0;
         // Note: The Z-axis gyroscope offset is adjusted by subtracting 16384 to account for the effect of gravity on the Z-axis.
         // This is because when the drone is stationary, the Z-axis accelerometer will measure the acceleration due to gravity, which is approximately 1g (16384 in raw data). Therefore, we need to subtract this value from the Z-axis gyroscope reading to get the true offset.
-        gyro_sum_z += (imu_data.gyro.gyro_z - 16384); // Subtract 16384 to account for gravity on the Z-axis
-
         accel_sum_x += (imu_data.accel.accel_x) - 0;
         accel_sum_y += (imu_data.accel.accel_y) - 0;
-        accel_sum_z += (imu_data.accel.accel_z) - 0;
+        accel_sum_z += (imu_data.accel.accel_z) - 16384;
 
         vTaskDelay(6);
     }

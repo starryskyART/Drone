@@ -78,7 +78,7 @@ typedef struct
 
 /**
  * @brief 角速度和加速度数据结构体
- * 
+ *
  */
 typedef struct
 {
@@ -92,10 +92,9 @@ typedef struct
  */
 typedef struct
 {
-    int16_t yaw;
-    int16_t pitch;
-    int16_t roll;
+    float yaw;   // 偏航角
+    float pitch; // 俯仰角
+    float roll;  // 横滚角
 } Euler_struct;
-
 
 #endif

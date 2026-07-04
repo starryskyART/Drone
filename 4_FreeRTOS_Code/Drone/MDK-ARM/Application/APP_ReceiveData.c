@@ -24,7 +24,7 @@ uint8_t ReceiveData(void)
         return 1;
     }
     // 帧头校验
-    if (Remote_ReceiveData[0] != FRAME_HEADER1 && Remote_ReceiveData[1] != FRAME_HEADER2 && Remote_ReceiveData[2] != FRAME_HEADER3)
+    if (Remote_ReceiveData[0] != FRAME_HEADER1 || Remote_ReceiveData[1] != FRAME_HEADER2 || Remote_ReceiveData[2] != FRAME_HEADER3)
     {
         return 1;
     }

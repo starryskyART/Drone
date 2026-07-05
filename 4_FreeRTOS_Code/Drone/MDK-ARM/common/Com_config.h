@@ -56,7 +56,8 @@ typedef enum
 
 /**
  * @brief 陀螺仪角速度数据结构体
- *
+ * @note 16位ADC的值
+ * 
  */
 typedef struct
 {
@@ -67,6 +68,7 @@ typedef struct
 
 /**
  * @brief 加速度计数据结构体
+ * @note 16位ADC的值
  *
  */
 typedef struct
@@ -78,6 +80,7 @@ typedef struct
 
 /**
  * @brief 角速度和加速度数据结构体
+ * @note 16位ADC的值
  *
  */
 typedef struct

@@ -28,16 +28,22 @@ void APP_Flight_Get_Euler_Angle(void)
     imu_data.accel.accel_y = Common_Filter_KalmanFilter(&kfs[1], imu_data.accel.accel_y);
     imu_data.accel.accel_z = Common_Filter_KalmanFilter(&kfs[2], imu_data.accel.accel_z);
     // debug_printf(":%d,%d,%d\n", imu_data.accel.accel_x, imu_data.accel.accel_y, imu_data.accel.accel_z);
-
- // 4. 通过加速度和角速度来计算当前飞机切斜的角度 => 姿态解算
+    /*========================================两种姿态解算方法========================================*/
+    // 1. 通过加速度和角速度来计算当前飞机切斜的角度 => 姿态解算
     // 使用互补解算计算欧拉角 => 优先使用加速度解算 => 俯仰角和横滚角能够使用
-    euler_angle.pitch = atan2(imu_data.accel.accel_x * 1.0, imu_data.accel.accel_z) / 3.14159 * 180;
+    // euler_angle.pitch = atan2(imu_data.accel.accel_x * 1.0, imu_data.accel.accel_z) / 3.14159 * 180;
 
-    euler_angle.roll = atan2(imu_data.accel.accel_y * 1.0, imu_data.accel.accel_z) / 3.14159 * 180;
+    // euler_angle.roll = atan2(imu_data.accel.accel_y * 1.0, imu_data.accel.accel_z) / 3.14159 * 180;
 
     // 偏航角 => 只能使用角速度积分
     // 16位ADC的值转换为°/s  => 量程是±2000°/s
-    gyro_z_sum += (imu_data.gyro.gyro_z * 2000.0 / 32768.0) * 0.006;
-    euler_angle.yaw = gyro_z_sum;
+    // gyro_z_sum += (imu_data.gyro.gyro_z * 2000.0 / 32768.0) * 0.006;
+    // euler_angle.yaw = gyro_z_sum;
     // debug_printf(":%.2f,%0.2f,%0.2f\n", euler_angle.pitch, euler_angle.roll, euler_angle.yaw);
+
+    // 2.通过四元数解算欧拉角
+    Common_IMU_GetEulerAngle(&imu_data, &euler_angle, 0.006);
+    debug_printf(":%d,%d,%d\n", (int)euler_angle.pitch, (int)euler_angle.roll, (int)euler_angle.yaw);
+    /*========================================两种姿态解算方法========================================*/
+    
 }

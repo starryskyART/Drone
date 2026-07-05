@@ -7,6 +7,7 @@
 #include "Com_debug.h"
 #include "Com_filter.h"
 #include "math.h"
+#include "Com_IMU.h"
 
 
 

@@ -1,10 +1,14 @@
 #include "APP_Flight.h"
 
 // 全局结构体变量
-IMU_Data imu_data = {0};
-Euler_struct euler_angle = {0};
-Gyro_Struct last_gyro = {0};
-float gyro_z_sum = 0; // 角速度积分得到的偏航角
+IMU_Data imu_data = {0};        // 陀螺仪和加速度计数据
+Euler_struct euler_angle = {0}; // 欧拉角
+Gyro_Struct last_gyro = {0};    // 上一次陀螺仪数据
+float gyro_z_sum = 0;           // 角速度积分得到的偏航角
+extern Remote_Data remote_data; // 遥控器数据结构体变量
+// PID控制结构体变量
+PID_TypeDef pitch_pid = {.Kp = 0, .Ki = 0, .Kd = 0};  // 俯仰角PID控制结构体（外环）
+PID_TypeDef gyro_y_pid = {.Kp = 0, .Ki = 0, .Kd = 0}; // 俯仰角角速度PID控制结构体（内环）
 
 /**
  * @brief 利用低通滤波器对陀螺仪数据进行滤波，并利用卡尔曼滤波器对加速度计数据进行滤波
@@ -45,5 +49,24 @@ void APP_Flight_Get_Euler_Angle(void)
     Common_IMU_GetEulerAngle(&imu_data, &euler_angle, 0.006);
     debug_printf(":%d,%d,%d\n", (int)euler_angle.pitch, (int)euler_angle.roll, (int)euler_angle.yaw);
     /*========================================两种姿态解算方法========================================*/
-    
+}
+
+/**
+ * @brief PID控制计算函数
+ *
+ *
+ */
+void APP_Flight_PID_Process(void)
+{
+    // 外环PID计算 => 计算俯仰角的期望角速度
+    // 遥控器的俯仰角范围是0 - 1000，控制期望角度范围是-10° - 10°
+    pitch_pid.desire = (remote_data.pitch); // 期望值为遥控器的俯仰角
+    pitch_pid.measure = euler_angle.pitch;  // 测量值为当前俯仰角
+    gyro_y_pid.measure = imu_data.gyro.gyro_x; // 内环测量值为当前角速度
+
+    Com_PID_Calculate_Chain(&pitch_pid, &gyro_y_pid);
+
+    // debug_printf(":%d,%d,%d\n", (int)pitch_pid.err, (int)pitch_pid.output, (int)gyro_y_pid.output);
+
+
 }

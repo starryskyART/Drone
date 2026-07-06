@@ -79,8 +79,11 @@ void Flight_Task(void *args)
     MPU6050_Init(); // 初始化MPU6050传感器
     while (1)
     {
-        // 获取三轴陀螺仪和三轴加速度计数据
+        // 根据传感器数据，姿态解算获取欧拉角
         APP_Flight_Get_Euler_Angle();
+
+        // 根据欧拉角和遥控器数据，进行PID控制计算
+        APP_Flight_PID_Process();
         xTaskDelayUntil(&xLastWakeTime, FLIGHT_TASK_PERIOD); // 每隔6ms执行一次
     }
 }

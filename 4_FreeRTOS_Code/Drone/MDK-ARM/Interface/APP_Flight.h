@@ -6,12 +6,14 @@
 #include "Com_config.h"
 #include "Com_debug.h"
 #include "Com_filter.h"
-#include "math.h"
 #include "Com_IMU.h"
+#include "Com_PID.h"
+#include "math.h"
 
 
 
 void APP_Flight_Get_Euler_Angle(void);
+void APP_Flight_PID_Process(void);
 
 
 #endif

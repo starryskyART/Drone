@@ -26,12 +26,6 @@ TaskHandle_t Com_Task_Handler;    // 通讯任务句柄
 
 // 内存管理，C语言当中的结构体通常保存在堆中，不会自动释放，始终使用同一个结构体来保存电机状态，避免频繁创建和销毁结构体导致内存碎片化
 
-// 电机结构体定义
-Motor_Struct left_top_motor = {.tim = &htim3, .channel = TIM_CHANNEL_1, .speed = 200};     // 电机1
-Motor_Struct left_bottom_motor = {.tim = &htim4, .channel = TIM_CHANNEL_4, .speed = 200};  // 电机2
-Motor_Struct right_top_motor = {.tim = &htim2, .channel = TIM_CHANNEL_2, .speed = 200};    // 电机3
-Motor_Struct right_bottom_motor = {.tim = &htim1, .channel = TIM_CHANNEL_3, .speed = 200}; // 电机4
-
 // LED结构体定义
 LED_Struct left_top_led = {.Port = LED1_GPIO_Port, .Pin = LED1_Pin};
 LED_Struct right_top_led = {.Port = LED2_GPIO_Port, .Pin = LED2_Pin};
@@ -39,10 +33,10 @@ LED_Struct right_bottom_led = {.Port = LED3_GPIO_Port, .Pin = LED3_Pin};
 LED_Struct left_bottom_led = {.Port = LED4_GPIO_Port, .Pin = LED4_Pin};
 
 // 当前连接状态
-Remote_State remote_state = REMOTE_DISCONNECTED;  // 遥控器已连接状态
-Remote_Data remote_data = {0};                    // 遥控器数据结构体
-Throttle_State throttle_state = Free;             // 油门状态
-uint8_t ReceiveData_buffer[TX_PLOAD_WIDTH] = {0}; // 静态接收缓冲区
+Remote_State remote_state = REMOTE_DISCONNECTED;                                                                // 遥控器已连接状态
+Remote_Data remote_data = {.throttle = 0, .yaw = 500, .pitch = 500, .roll = 500, .fix_high = 0, .shutdown = 0}; // 遥控器数据结构体
+Throttle_State throttle_state = Free;                                                                           // 油门状态
+uint8_t ReceiveData_buffer[TX_PLOAD_WIDTH] = {0};                                                               // 静态接收缓冲区
 
 // 表示当前飞行状态
 Flight_State flight_state = NORMAL; // 初始飞行状态为NORMAL
@@ -76,7 +70,6 @@ void Flight_Task(void *args)
 {
     // 获取当前基准时间
     TickType_t xLastWakeTime = xTaskGetTickCount();
-    MPU6050_Init(); // 初始化MPU6050传感器
     while (1)
     {
         // 根据传感器数据，姿态解算获取欧拉角
@@ -84,6 +77,9 @@ void Flight_Task(void *args)
 
         // 根据欧拉角和遥控器数据，进行PID控制计算
         APP_Flight_PID_Process();
+
+        // 根据PID控制计算结果，控制电机转速
+        APP_Flight_ControlMotor();
         xTaskDelayUntil(&xLastWakeTime, FLIGHT_TASK_PERIOD); // 每隔6ms执行一次
     }
 }
@@ -133,7 +129,7 @@ void LED_Task(void *args)
                 LED_Toggle(&right_bottom_led);
             }
         }
-        else if (flight_state == FIX_HEIGHT)
+        else if (flight_state == FIX_HIGHT)
         {
             // 定高飞行状态，后两个LED常亮
             LED_Turn_On(&left_bottom_led);

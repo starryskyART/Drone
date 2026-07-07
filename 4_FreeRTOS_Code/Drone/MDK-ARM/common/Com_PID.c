@@ -47,3 +47,22 @@ void Com_PID_Calculate_Chain(PID_TypeDef *out_pid, PID_TypeDef *in_pid)
     // 2. 内环PID计算
     Com_PID_Calculate(in_pid);
 }
+
+
+
+int16_t Com_Limit(int16_t speed, int16_t max_speed, int16_t min_speed)
+{
+    if (speed > max_speed)
+    {
+        return max_speed;
+    }
+    else if (speed < min_speed)
+    {
+        return min_speed;
+    }
+    else
+    {
+        return speed;
+    }
+}
+

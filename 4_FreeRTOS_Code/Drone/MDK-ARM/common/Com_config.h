@@ -17,13 +17,13 @@ typedef enum
 /**
  * @brief 飞行状态枚举
  *
- * @note 该枚举用于表示飞行器的飞行状态，IDLE表示空闲状态，NORMAL表示正常飞行状态，FIX_HEIGHT表示定高飞行状态，FAIL表示故障状态
+ * @note 该枚举用于表示飞行器的飞行状态，IDLE表示空闲状态，NORMAL表示正常飞行状态，FIX_HIGHT表示定高飞行状态，FAIL表示故障状态
  */
 typedef enum
 {
     IDLE = 0,
     NORMAL,
-    FIX_HEIGHT,
+    FIX_HIGHT,
     FAIL,
 } Flight_State;
 

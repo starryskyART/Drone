@@ -1,6 +1,8 @@
 #ifndef __COM_PID_H__
 #define __COM_PID_H__
 
+#include "main.h"
+
 #define PERIOD 0.006 // 控制周期
 
 /**
@@ -22,5 +24,6 @@ typedef struct
 
 void Com_PID_Calculate(PID_TypeDef *pid);
 void Com_PID_Calculate_Chain(PID_TypeDef *out_pid, PID_TypeDef *in_pid);
+int16_t Com_Limit(int16_t speed, int16_t max_speed, int16_t min_speed);
 
 #endif

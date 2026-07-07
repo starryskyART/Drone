@@ -159,10 +159,10 @@ void Drone_State(void)
         }
         break;
     case NORMAL:
-        // 遥控器定高，飞行状态为FIX_HEIGHT
+        // 遥控器定高，飞行状态为FIX_HIGHT
         if (remote_data.fix_high == 1)
         {
-            flight_state = FIX_HEIGHT;
+            flight_state = FIX_HIGHT;
             remote_data.fix_high = 0; // 重置定高标志
         }
         // 遥控器断开连接，飞行状态为FAIL
@@ -171,7 +171,7 @@ void Drone_State(void)
             flight_state = FAIL;
         }
         break;
-    case FIX_HEIGHT:
+    case FIX_HIGHT:
         // 遥控器定高解除，飞行状态为NORMAL
         if (remote_data.fix_high == 0)
         {
